@@ -38,10 +38,10 @@ export default () => ( <
                   src={edge.node.foregroundImage.file.url}>
                 </img>
               </header>
-        ))
+          )
+      )
     }
-    />
-  )
+/>)
 
   const headerStyles = StyleSheet.create({
     container: {

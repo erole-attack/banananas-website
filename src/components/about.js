@@ -5,18 +5,18 @@ import { StyleSheet, css } from 'aphrodite'
 export default () => ( <
   StaticQuery query = {graphql `
     query getAboutData {
-      allContentfulAbout(limit: 1) {
-        edges {
-          node {
-            title
-          description {
-            childMarkdownRemark {
-              html
-            }
+  allContentfulAbout(limit: 1) {
+    edges {
+      node {
+        title
+        description {
+          childMarkdownRemark {
+            html
           }
         }
       }
     }
+  }
 }
   `
   }
@@ -36,10 +36,10 @@ export default () => ( <
                     />
                 </div>
             </div>
-        ))
+          )
+      )
     }
-    />
-  )
+/>)
 
   const aboutStyles = StyleSheet.create({
     container: {

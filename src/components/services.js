@@ -51,10 +51,9 @@ export default () => ( <
             </div>
       )
     }
-    />
-  )
+/>)
 
-  const servicesStyles = StyleSheet.create({
+const servicesStyles = StyleSheet.create({
   container: {
     width: '100vw',
     height: '45vh',
