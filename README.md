@@ -1,4 +1,4 @@
-## WORK IN PROGRESS
+## WORK IN PROGRESS ...
 
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
