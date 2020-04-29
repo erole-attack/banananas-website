@@ -36,7 +36,6 @@ export default () => ( <
             <img
               className={css(quotesStyles.backimg)}
               src={data.contentfulHeader.backgroundImage.file.url}/>
-
             <Carousel className={css(quotesStyles.quoteContainer)}
               autoplay = {true}
               swiping = {true}
@@ -52,11 +51,14 @@ export default () => ( <
               }}
             >
               {data.allContentfulQuotes.edges.map(edge =>
+                <div>
                 <div className={css(quotesStyles.quote)}
                   dangerouslySetInnerHTML={
                     {__html: edge.node.quote.childMarkdownRemark.html}
                   }
                 />
+                <p>{edge.node.source}</p>
+                </div>
               )}
             </Carousel>
         </div>
