@@ -47,8 +47,8 @@ export default () => ( <
                         <button type="button" className={css(servicesStyles.button)}>Lees meer</button>
                     </div>
                 )}
-        </div>
             </div>
+        </div>
       )
     }
 />)
