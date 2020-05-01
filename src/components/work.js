@@ -43,7 +43,7 @@ export default () => {
         )
       )
     }
-    
+
     else {
       return(
         data.contentfulWork.workImages.map(image =>
@@ -91,8 +91,9 @@ const workStyles = StyleSheet.create({
   container: {
     position: 'relative',
     display: 'grid',
-    width: '480px',
-    height: '480px',
+    width: '400px',
+    height: '400px',
+    padding: '10px',
     gridTemplateColumns: '1fr 10fr 1fr',
     gridTemplateRows: '1fr 6fr 1fr',
     justifyContent: 'center',
