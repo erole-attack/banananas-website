@@ -30,7 +30,7 @@ export default () => {
       <h1>
         {data.contentfulTeam.title.toUpperCase()}
       </h1>
-      <p dangerouslySetInnerHTML={
+      <div dangerouslySetInnerHTML={
         { __html: data.contentfulTeam.description.childMarkdownRemark.html}
       }/>
       <div className={css(teamStyles.wrapper)}>
