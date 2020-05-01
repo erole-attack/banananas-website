@@ -116,8 +116,8 @@ const workStyles = StyleSheet.create({
 
   overlay: {
     placeSelf: 'center',
-    height: '75%',
-    width: '75%',
+    height: '90%',
+    width: '90%',
     gridColumnStart: '1',
     gridColumnEnd: '4',
     gridRowStart: '1',
