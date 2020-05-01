@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { StyleSheet, css } from 'aphrodite'
 import { useForm } from 'react-hook-form'
+import PhoneInput from 'react-phone-number-input'
+import 'react-phone-number-input/style.css'
 
 export default () => {
   const data = useStaticQuery(
@@ -19,6 +21,7 @@ export default () => {
     `
   )
 
+  const [value, setValue] = useState()
   const { handleSubmit, register, errors } = useForm()
   const onSubmit = values => console.log(values)
 
@@ -53,16 +56,11 @@ export default () => {
         />
         {errors.email && errors.email.message}
 
-        <input
-          name="phone"
-          placeholder="telefoonnummer"
-          ref={register({
-            validate: value =>
-            /^((\+|00)32\s?|0)4(60|[789]\d)(\s?\d{2}){3}$/.test(value) ||
-            /^((\+|00)32\s?|0)(\d\s?\d{3}|\d{2}\s?\d{2})(\s?\d{2}){2}$/.test(value)
-          })}
+        <PhoneInput
+          placeholder="Enter phone number"
+          value={value}
+          onChange={setValue}
         />
-        {errors.phone && errors.phone.message}
 
         <input
           name="message"
