@@ -5,7 +5,7 @@ import { StyleSheet, css } from 'aphrodite'
 export default () => {
   const data = useStaticQuery(
     graphql `
-      query getworkData {
+      query getWorkData {
         contentfulWork {
           workImages {
             title
