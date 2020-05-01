@@ -1,119 +1,118 @@
 import React from 'react'
-import { graphql, navigate, StaticQuery } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 import { StyleSheet, css } from 'aphrodite'
 import lineOne from'../images/line-01.svg'
 import lineTwo from'../images/line-02.svg'
 import lineThree from'../images/line-03.svg'
 import lineFour from'../images/line-04.svg'
 
-export default () => ( <
-  StaticQuery query = {graphql `
-    query MyQuery {
-        allContentfulConcept(limit: 1) {
-          edges {
-            node {
-              banaanAnananas {
-                file {
-                  url
-                }
-              }
-              bananaPeel
-              bananaPeelDescription {
-                childMarkdownRemark {
-                  html
-                }
-              }
-              pineappleShootApex
-              pineappleShootApexDescription {
-                childMarkdownRemark {
-                  html
-                }
-              }
-              totalBanana
-              totalBananaDescription {
-                childMarkdownRemark {
-                  html
-                }
-              }
-              bananaFlesh
-              bananaFleshDescription {
-                childMarkdownRemark {
-                  html
-                }
-              }
+export default () => {
+  const data = useStaticQuery(
+    graphql `
+      query getBananaDats {
+        contentfulConcept {
+          banaanAnananas {
+            file {
+              url
+            }
+          }
+          bananaPeel
+          bananaPeelDescription {
+            childMarkdownRemark {
+              html
+            }
+          }
+          pineappleShootApex
+          pineappleShootApexDescription {
+            childMarkdownRemark {
+              html
+            }
+          }
+          totalBanana
+          totalBananaDescription {
+            childMarkdownRemark {
+              html
+            }
+          }
+          bananaFlesh
+          bananaFleshDescription {
+            childMarkdownRemark {
+              html
             }
           }
         }
       }
-  `}
+    `
+  )
 
-  render = {
-    data => (
-      data.allContentfulConcept.edges.map(edge =>
-        <div className={css(conceptStyles.container)}>
-            <div className={css(conceptStyles.content)}>
-                <img
-                  className={css(conceptStyles.backimg)}
-                  src={edge.node.banaanAnananas.file.url}>
-                </img>
-                <div className={css(conceptStyles.captionContainer)}>
-                    <img
-                      className={css(conceptStyles.lineOne)}
-                      src={lineOne}>
-                    </img>
-                    <div className={css(conceptStyles.bananaPeel)}>
-                        <h3>{edge.node.bananaPeel}</h3>
-                        <div
-                          dangerouslySetInnerHTML={
-                            { __html: edge.node.bananaPeelDescription.childMarkdownRemark.html}
-                          }
-                        />
-                    </div>
-                    <img
-                      className={css(conceptStyles.lineTwo)}
-                      src={lineTwo}>
-                    </img>
-                    <div className={css(conceptStyles.pineappleShootApex)}>
-                        <h3>{edge.node.pineappleShootApex}</h3>
-                        <div
-                          dangerouslySetInnerHTML={
-                            { __html: edge.node.pineappleShootApexDescription.childMarkdownRemark.html}
-                          }
-                        />
-                    </div>
-                    <img
-                      className={css(conceptStyles.lineThree)}
-                      src={lineThree}>
-                    </img>
-                    <div className={css(conceptStyles.totalBanana)}>
-                        <h3>{edge.node.totalBanana}</h3>
-                        <div
-                          dangerouslySetInnerHTML={
-                            { __html: edge.node.totalBananaDescription.childMarkdownRemark.html}
-                          }
-                        />
-                    </div>
-                    <img
-                      className={css(conceptStyles.lineFour)}
-                      src={lineFour}>
-                    </img>
-                    <div className={css(conceptStyles.bananaFlesh)}>
-                        <h3>{edge.node.bananaFlesh}</h3>
-                        <div
-                          dangerouslySetInnerHTML={
-                            { __html: edge.node.bananaFleshDescription.childMarkdownRemark.html}
-                          }
-                        />
-                    </div>
-                </div>
+  const banana = data.contentfulConcept
+
+  const captions = [
+
+    {
+      lineStyle: conceptStyles.lineOne,
+      src: lineOne,
+      textStyle: conceptStyles.bananaPeel,
+      title: banana.bananaPeel,
+      html: banana.bananaPeelDescription.childMarkdownRemark.html
+    },
+
+    {
+      lineStyle: conceptStyles.lineTwo,
+      src: lineTwo,
+      textStyle: conceptStyles.pineappleShootApex,
+      title: banana.pineappleShootApex,
+      html: banana.pineappleShootApexDescription.childMarkdownRemark.html
+    },
+
+    {
+      lineStyle: conceptStyles.lineThree,
+      src: lineThree,
+      textStyle: conceptStyles.totalBanana,
+      title: banana.totalBanana,
+      html: banana.totalBananaDescription.childMarkdownRemark.html
+    },
+
+    {
+      lineStyle: conceptStyles.lineFour,
+      src: lineFour,
+      textStyle: conceptStyles.bananaFlesh,
+      title: banana.bananaFlesh,
+      html: banana.bananaFleshDescription.childMarkdownRemark.html
+    }
+
+  ]
+  
+  return(
+    <div className={css(conceptStyles.container)}>
+      <div className={css(conceptStyles.content)}>
+        <img
+          className={css(conceptStyles.backimg)}
+          src={data.contentfulConcept.banaanAnananas.file.url}>
+        </img>
+        <div className={css(conceptStyles.captionContainer)}>
+          {captions.map(caption =>
+            <div>
+              <img
+                className={css(caption.lineStyle)}
+                src={caption.src}>
+              </img>
+              <div className={css(caption.textStyle)}>
+                <h3>{caption.title}</h3>
+                <div dangerouslySetInnerHTML={
+                  { __html: caption.html}
+                }/>
+              </div>
             </div>
+          )}
         </div>
-      )
-    )
-  }
-/> )
+      </div>
+    </div>
+  )
+}
 
   const conceptStyles = StyleSheet.create({
+
     container: {
       display: 'flex',
       width: '100vw',
@@ -127,7 +126,7 @@ export default () => ( <
       position: 'relative',
       paddingBottom: '50%',
       position: 'absolute',
-      width: '67%',
+      width: '67%'
     },
 
     backimg: {

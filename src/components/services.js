@@ -1,59 +1,60 @@
 import React from 'react'
-import { graphql, navigate, StaticQuery } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 import { StyleSheet, css } from 'aphrodite'
 
-export default () => ( <
-  StaticQuery query = {
+export default () => {
+  const data = useStaticQuery(
     graphql `
-    query getServicesData {
-  allContentfulServices(limit: 3) {
-    edges {
-      node {
-        title
-        subtitle
-        description {
-          childMarkdownRemark {
-            html
-          }
-        }
-        servicesIcon {
-          file {
-            url
+      query getServicesData {
+        allContentfulServices(limit: 3) {
+          edges {
+            node {
+              title
+              subtitle
+              description {
+                childMarkdownRemark {
+                  html
+                }
+              }
+              servicesIcon {
+                file {
+                  url
+                }
+              }
+            }
           }
         }
       }
-    }
-  }
+    `
+  )
+
+  return(
+    <div className={css(servicesStyles.container)}>
+      <div className={css(servicesStyles.grid)}>
+        {data.allContentfulServices.edges.map(edge =>
+          <div className={css(servicesStyles.serviceBlock)}>
+            <img src={edge.node.servicesIcon.file.url}
+              className={css(servicesStyles.icons)}
+            />
+            <h2 className={css(servicesStyles.title)}>
+              {edge.node.title.toUpperCase()}
+            </h2>
+            <div
+              className={css(servicesStyles.description)}
+              dangerouslySetInnerHTML={
+                { __html: edge.node.description.childMarkdownRemark.html.slice(0,90).concat(' ...')}
+              }
+            />
+            <button type="button" className={css(servicesStyles.button)}>Lees meer</button>
+          </div>
+        )}
+      </div>
+    </div>
+  )
 }
-  `
-  }
-  render = {
-    data => (
-        <div className={css(servicesStyles.container)}>
-            <div className={css(servicesStyles.grid)}>
-                {data.allContentfulServices.edges.map(edge =>
-                    <div className={css(servicesStyles.serviceBlock)}>
-                        <img src={edge.node.servicesIcon.file.url}
-                          className={css(servicesStyles.icons)}/>
-                        <h2 className={css(servicesStyles.title)}>
-                            {edge.node.title.toUpperCase()}
-                        </h2>
-                        <div
-                          className={css(servicesStyles.description)}
-                          dangerouslySetInnerHTML={
-                            { __html: edge.node.description.childMarkdownRemark.html.slice(0,90).concat(' ...')}
-                          }
-                        />
-                        <button type="button" className={css(servicesStyles.button)}>Lees meer</button>
-                    </div>
-                )}
-            </div>
-        </div>
-      )
-    }
-/>)
 
 const servicesStyles = StyleSheet.create({
+
   container: {
     width: '100vw',
     height: '45vh',
@@ -94,7 +95,7 @@ const servicesStyles = StyleSheet.create({
     gridTemplateColumns: '1fr 1fr 1fr',
     gridTemplateRows: '1fr',
     columnGap: '30px',
-    margin: '0 auto',
+    margin: '0 auto'
   },
 
   serviceBlock: {
@@ -102,6 +103,7 @@ const servicesStyles = StyleSheet.create({
     placeSelf: 'center',
     height: '80%',
     gridTemplateColumns: '1fr',
-    gridTemplateRows: '40% 25% 25% 10%',
+    gridTemplateRows: '40% 25% 25% 10%'
   }
+
 })

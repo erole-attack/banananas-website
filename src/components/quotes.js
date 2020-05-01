@@ -1,10 +1,10 @@
 import React from 'react'
-import { graphql, navigate, StaticQuery } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 import { StyleSheet, css } from 'aphrodite'
 import Carousel from 'nuka-carousel'
 
-export default () => ( <
-    StaticQuery query = {
+export default () => {
+    const data = useStaticQuery(
       graphql `
         query getQuoteData {
           allContentfulQuotes(limit: 3) {
@@ -28,45 +28,46 @@ export default () => ( <
           }
         }
       `
-    }
+    )
 
-    render = {
-      data => (
-        <div className={css(quotesStyles.container)}>
-            <img
-              className={css(quotesStyles.backimg)}
-              src={data.contentfulHeader.backgroundImage.file.url}/>
-            <Carousel className={css(quotesStyles.quoteContainer)}
-              autoplay = {true}
-              swiping = {true}
-              framePadding = {'10vh'}
-              dragging = {true}
-              slidesToScroll = {'auto'}
-              defaultControlsConfig={{
-                nextButtonStyle: '',
-                prevButtonStyle: '',
-                pagingDotsStyle: {
-                  fill: 'white'
-                }
-              }}
-            >
-              {data.allContentfulQuotes.edges.map(edge =>
-                <div>
-                <div className={css(quotesStyles.quote)}
-                  dangerouslySetInnerHTML={
-                    {__html: edge.node.quote.childMarkdownRemark.html}
-                  }
-                />
-                <p>{edge.node.source}</p>
-                </div>
-              )}
-            </Carousel>
-        </div>
-      )
-    }
-/>)
+  return(
+    <div className={css(quotesStyles.container)}>
+      <img
+        className={css(quotesStyles.backimg)}
+        src={data.contentfulHeader.backgroundImage.file.url}
+      />
+      <Carousel className={css(quotesStyles.quoteContainer)}
+        autoplay = {true}
+        swiping = {true}
+        framePadding = {'10vh'}
+        dragging = {true}
+        slidesToScroll = {'auto'}
+        defaultControlsConfig={{
+          nextButtonStyle: '',
+          prevButtonStyle: '',
+          pagingDotsStyle: {
+            fill: 'white'
+          }
+        }}
+      >
+        {data.allContentfulQuotes.edges.map(edge =>
+          <div>
+            <div className={css(quotesStyles.quote)}
+              dangerouslySetInnerHTML={
+                {__html: edge.node.quote.childMarkdownRemark.html}
+              }
+            />
+            <p>{edge.node.source}</p>
+          </div>
+        )}
+      </Carousel>
+    </div>
+  )
+
+}
 
 const quotesStyles = StyleSheet.create({
+
   container: {
     display: 'grid',
     width: '100vw',
@@ -98,7 +99,7 @@ const quotesStyles = StyleSheet.create({
     gridColumnEnd: '3',
     gridRowStart: '2',
     gridRowEnd: '3',
-    placeSelf: 'center',
+    placeSelf: 'center'
   },
 
   quote: {
@@ -108,4 +109,5 @@ const quotesStyles = StyleSheet.create({
     backgroundColor: 'rgba(0,0,0,0)',
     color: 'white'
   }
+  
 })

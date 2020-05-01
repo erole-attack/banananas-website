@@ -1,49 +1,43 @@
 import React from 'react'
-import { graphql, navigate, StaticQuery } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 import { StyleSheet, css } from 'aphrodite'
 
-export default () => ( <
-  StaticQuery query = {
+export default () => {
+  const data = useStaticQuery (
     graphql `
       query getHeaderData {
-  allContentfulHeader(limit: 1) {
-    edges {
-      node {
-        backgroundImage {
-          file {
-            url
+        contentfulHeader {
+          foregroundImage {
+            file {
+              url
+            }
           }
-        }
-        foregroundImage {
-          file {
-            url
+          backgroundImage {
+            file {
+              url
+            }
           }
         }
       }
-    }
-  }
+    `
+  )
+
+  return(
+    <header className={css(headerStyles.container)}>
+      <img
+        className={css(headerStyles.backimg)}
+        src={data.contentfulHeader.backgroundImage.file.url}>
+      </img>
+      <img
+        className={css(headerStyles.topimg)}
+        src={data.contentfulHeader.foregroundImage.file.url}>
+      </img>
+    </header>
+  )
 }
-  `
-  }
-  render = {
-    data => (
-        data.allContentfulHeader.edges.map(edge =>
-            <header className={css(headerStyles.container)}>
-                <img
-                  className={css(headerStyles.backimg)}
-                  src={edge.node.backgroundImage.file.url}>
-                </img>
-                <img
-                  className={css(headerStyles.topimg)}
-                  src={edge.node.foregroundImage.file.url}>
-                </img>
-              </header>
-          )
-      )
-    }
-/>)
 
   const headerStyles = StyleSheet.create({
+
     container: {
       display: 'grid',
       width: '100vw',
@@ -74,4 +68,5 @@ export default () => ( <
       placeSelf: 'center',
       zIndex: '30'
     }
+    
   })

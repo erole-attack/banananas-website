@@ -6,6 +6,7 @@ import About from "../components/about"
 import Services from "../components/services"
 import Concept from "../components/concept"
 import Quotes from "../components/quotes"
+import Work from "../components/work"
 
 
 import Nav from "../components/nav"
@@ -19,6 +20,7 @@ const IndexPage = () => (
     <Services/>
     <Concept/>
     <Quotes/>
+    <Work/>
     <Link to="/page-2/">Go to page 2</Link>
   </Layout>
 )
