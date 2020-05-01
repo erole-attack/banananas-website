@@ -38,8 +38,8 @@ export default () => {
           <div className={css(teamStyles.container)}>
             <img className={css(teamStyles.image)} src={member.file.url}/>
             <div className={css(teamStyles.overlay)}>
-              <p className={css(teamStyles.overlayText)}>{member.title}</p>
-              <p className={css(teamStyles.overlayText)}>{member.description}</p>
+              <p> className={css(teamStyles.overlayText)}>{member.title}</p>
+              <p> className={css(teamStyles.overlayText)}>{member.description}</p>
             </div>
           </div>
         )}
