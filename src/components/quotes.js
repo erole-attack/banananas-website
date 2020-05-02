@@ -2,6 +2,8 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { StyleSheet, css } from 'aphrodite'
 import Carousel from 'nuka-carousel'
+import { screenSize } from "./styles/styles"
+import quotationSign from'../images/left-quotation-sign.svg'
 
 export default () => {
     const data = useStaticQuery(
@@ -36,11 +38,11 @@ export default () => {
         className={css(quotesStyles.backimg)}
         src={data.contentfulHeader.backgroundImage.file.url}
       />
-      <Carousel className={css(quotesStyles.quoteContainer)}
+      <Carousel className={css(quotesStyles.wrapper)}
         autoplay = {true}
         swiping = {true}
-        framePadding = {'10vh'}
-        dragging = {true}
+        dragging = {false}
+        wrapAround = {true}
         slidesToScroll = {'auto'}
         defaultControlsConfig={{
           nextButtonStyle: '',
@@ -51,13 +53,18 @@ export default () => {
         }}
       >
         {data.allContentfulQuotes.edges.map(edge =>
-          <div>
+          <div className={css(quotesStyles.quoteContainer)}>
+            <img
+              src={quotationSign}
+              className={css(quotesStyles.sign)}
+            />
             <div className={css(quotesStyles.quote)}
               dangerouslySetInnerHTML={
                 {__html: edge.node.quote.childMarkdownRemark.html}
               }
             />
-            <p>{edge.node.source}</p>
+            {console.log(edge.node.source)}
+            <p className={css(quotesStyles.source)}>{edge.node.source !== null ? '- ' + edge.node.source : ""}</p>
           </div>
         )}
       </Carousel>
@@ -72,6 +79,7 @@ const quotesStyles = StyleSheet.create({
     display: 'grid',
     width: '100vw',
     height: '45vh',
+    minHeight: '350px',
     gridTemplateColumns: '1fr 10fr 1fr',
     gridTemplateRows: '1fr 6fr 1fr',
     background: 'black',
@@ -90,24 +98,82 @@ const quotesStyles = StyleSheet.create({
     opacity: '0.3'
   },
 
-  quoteContainer: {
+  wrapper: {
     textAlign: 'center',
     verticalAlign: 'middle',
-    height: '100%',
-    width: '100%',
+    height: '70%',
+    width: '80%',
     gridColumnStart: '2',
     gridColumnEnd: '3',
     gridRowStart: '2',
     gridRowEnd: '3',
-    placeSelf: 'center'
+    placeSelf: 'center',
+    [screenSize.tablet]: {
+      width: '100%',
+      height: '90%'
+    },
+    [screenSize.smartphoneLandscape]: {
+      width: '100%',
+      height: '100%'
+    },
+    [screenSize.smartphone]: {
+      width: '100%',
+      height: '100%'
+    }
+  },
+
+  quoteContainer: {
+    margin: '0 auto',
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyItems: 'center',
+    alignItems: 'center',
+  },
+
+  sign: {
+    color: 'white',
+    flexBasis: '10%',
   },
 
   quote: {
+    display: 'inline-block',
     height: '100%',
     width: '100%',
     zIndex: '30',
     backgroundColor: 'rgba(0,0,0,0)',
-    color: 'white'
+    color: 'white',
+    flexBasis: '85%',
+    fontSize: '1.7vw',
+    marginLeft: '5%',
+    [screenSize.tablet]: {
+      fontSize: '2.4vw',
+    },
+    [screenSize.smartphoneLandscape]: {
+      fontSize: '3.4vw'
+
+    },
+    [screenSize.smartphone]: {
+      fontSize: '4.2vw'
+    }
+  },
+
+  source: {
+    position: 'relative',
+    width: '100%',
+    left: '35%',
+    fontSize: '1.2vw',
+    color: 'white',
+    alignSelf: 'center',
+    [screenSize.tablet]: {
+      fontSize: '1.4vw',
+    },
+    [screenSize.smartphoneLandscape]: {
+      fontSize: '1.7vw'
+
+    },
+    [screenSize.smartphone]: {
+      fontSize: '2.1vw'
+    }
   }
-  
+
 })

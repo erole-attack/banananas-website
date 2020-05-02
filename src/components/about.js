@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { StyleSheet, css } from 'aphrodite'
+import { screenSize, titleTransform } from "./styles/styles"
 
 export default () => {
   const data = useStaticQuery(
@@ -21,9 +22,7 @@ export default () => {
   return(
     <div className={css(aboutStyles.container)}>
       <div className={css(aboutStyles.grid)}>
-        <h1 className={css(aboutStyles.title)}>
-          {data.contentfulAbout.title.toUpperCase()}
-        </h1>
+        {titleTransform(data.contentfulAbout)}
         <div
           className={css(aboutStyles.description)}
           dangerouslySetInnerHTML={
@@ -42,7 +41,19 @@ export default () => {
       alignItems: 'center',
       justifyContent: 'center',
       width: '100vw',
-      height: '35vh'
+      height: '35vh',
+      overflow: 'hidden',
+      minHeight: '300px',
+      [screenSize.tablet]: {
+        height: '40vh'
+      },
+      [screenSize.smartphoneLandscape]: {
+        height: '45vh'
+      },
+      [screenSize.smartphone]: {
+        height: '50vh',
+        minHeight: '400px'
+      }
     },
 
     grid: {
@@ -50,7 +61,12 @@ export default () => {
       width: '60%',
       height: '70%',
       gridTemplateColumns: '1',
-      gridTemplateRows: '40% 60%'
-    }
+      gridTemplateRows: '40% 60%',
+      justifyItems: 'center',
+      textAlign: 'center',
+      [screenSize.smartphone]: {
+        width: '80%',
+      }
+    },
 
   })

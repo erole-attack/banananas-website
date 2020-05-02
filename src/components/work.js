@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { StyleSheet, css } from 'aphrodite'
+import { screenSize, titleTransform } from "./styles/styles"
 
 export default () => {
   const data = useStaticQuery(
@@ -60,13 +61,13 @@ export default () => {
 
   return (
     <div>
-      <h1>
-        {data.contentfulWork.title.toUpperCase()}
+      <h1 className={css(workStyles.title)}>
+        {titleTransform(data.contentfulWork)}
       </h1>
-      <div id="myBtnContainer">
-        <button onClick={ () => toggleFilter('all') }>TOON ALLES</button>
-        <button onClick={ () => toggleFilter(1) }>KMO'S</button>
-        <button onClick={ () => toggleFilter(2) }>UITGEVERIJEN</button>
+      <div id="myBtnContainer" className={css(workStyles.buttons)}>
+        <button className={css(workStyles.button)} onClick={ () => toggleFilter('all') }>{filter === "all" ? <strong>TOON ALLES</strong> : <span>TOON ALLES</span>}</button>
+        <button className={css(workStyles.button)} onClick={ () => toggleFilter(1) }>{filter === 1 ? <strong>KMO'S</strong> : <span>KMO'S</span>}</button>
+        <button className={css(workStyles.button)} onClick={ () => toggleFilter(2) }>{filter === 2 ? <strong>UITGEVERIJEN</strong> : <span>UITGEVERIJEN</span>}</button>
       </div>
       <div className={css(workStyles.wrapper)}>
         {filterPhotos()}
@@ -78,14 +79,36 @@ export default () => {
 
 const workStyles = StyleSheet.create({
 
+  title: {
+    margin: '40px 0 30px 0'
+  },
+
+  buttons: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: '0 0 30px 0'
+  },
+
+  button: {
+    border: 'none',
+    color: '#252526',
+    backgroundColor: 'white',
+    padding: '10px 32px',
+    margin: '5px',
+    textAlign: 'center',
+    textDecoration: 'none',
+    display: 'inline-block',
+  },
+
   wrapper: {
     display: 'flex',
     flexWrap: 'wrap',
-    justifyContent: 'center',
+    placeContent: 'center',
     alignItems: 'center',
-    width: '100vw',
-    overflow: 'hidden',
-    padding: '15px'
+    margin: '0 auto',
+    width: '95vw',
+    overflow: 'hidden'
   },
 
   container: {
@@ -94,14 +117,26 @@ const workStyles = StyleSheet.create({
     width: '400px',
     height: '400px',
     padding: '10px',
-    gridTemplateColumns: '1fr 10fr 1fr',
-    gridTemplateRows: '1fr 6fr 1fr',
-    justifyContent: 'center',
+    gridTemplateColumns: '100%',
+    gridTemplateRows: '10% 80% 10%',
+    placeContent: 'center',
     ':hover': {
       ':nth-child(1n) > div': {
         backgroundColor: 'rgba(0, 0, 0, 0.4)',
         opacity: '1'
       }
+    },
+    [screenSize.tablet]: {
+      width: '350px',
+      height: '350px'
+    },
+    [screenSize.smartphoneLandscape]: {
+      width: '200px',
+      height: '200px'
+    },
+    [screenSize.smartphone]: {
+      width: '400px',
+      height: '400px'
     }
   },
 
@@ -126,6 +161,7 @@ const workStyles = StyleSheet.create({
   },
 
   overlayText: {
+    fontSize: '24px',
     color: 'white',
     position: 'absolute',
     top: '50%',

@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { StyleSheet, css } from 'aphrodite'
+import { screenSize } from "./styles/styles"
 
 export default () => {
   const data = useStaticQuery(
@@ -28,6 +29,12 @@ export default () => {
     `
   )
 
+  const trimServiceBlockText = (path) =>{
+    const serviceBlockText = path.slice(0,100).split(" ")
+    const popped = serviceBlockText.pop()
+    return serviceBlockText.join(" ").concat(' ...')
+  }
+
   return(
     <div className={css(servicesStyles.container)}>
       <div className={css(servicesStyles.grid)}>
@@ -42,10 +49,10 @@ export default () => {
             <div
               className={css(servicesStyles.description)}
               dangerouslySetInnerHTML={
-                { __html: edge.node.description.childMarkdownRemark.html.slice(0,90).concat(' ...')}
+                { __html: trimServiceBlockText(edge.node.description.childMarkdownRemark.html)}
               }
             />
-            <button type="button" className={css(servicesStyles.button)}>Lees meer</button>
+            <button type="button" className={css(servicesStyles.button)}>LEES MEER</button>
           </div>
         )}
       </div>
@@ -60,7 +67,54 @@ const servicesStyles = StyleSheet.create({
     height: '45vh',
     background: '#101213',
     overflow: 'hidden',
-    color: 'white'
+    color: 'white',
+    margin: '0 auto',
+    minHeight: '400px',
+    [screenSize.tablet]: {
+      height: '160vh',
+      width: '70vw',
+      minHeight: '1200px'
+    },
+    [screenSize.smartphoneLandscape]: {
+      height: '160vh',
+      width: '80vw',
+      minHeight: '1200px'
+    },
+    [screenSize.smartphone]: {
+      height: '160vh',
+      width: '60vw',
+      minWidth: '350px',
+      minHeight: '1200px'
+    }
+  },
+
+  grid: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+    height: '100%',
+    margin: '0 auto',
+    [screenSize.tablet]: {
+      width: '60%'
+    },
+    [screenSize.smartphoneLandscape]: {
+      width: '90%'
+    },
+    [screenSize.smartphone]: {
+      width: '90%'
+    }
+  },
+
+  serviceBlock: {
+    display: 'grid',
+    width: '260px',
+    height: '280px',
+    gridTemplateColumns: '1fr',
+    gridTemplateRows: '30% 25% 30% 15%',
+    marginLeft: '35px',
+    marginRight: '35px'
   },
 
   icons: {
@@ -77,33 +131,21 @@ const servicesStyles = StyleSheet.create({
   },
 
   description: {
-    placeSelf: 'center',
     gridRowStart: '3',
-    gridRowEnd: '4'
+    gridRowEnd: '4',
   },
 
   button: {
     placeSelf: 'center',
     gridRowStart: '4',
-    gridRowEnd: '5'
-  },
-
-  grid: {
-    display: 'grid',
-    width: '75%',
-    height: '100%',
-    gridTemplateColumns: '1fr 1fr 1fr',
-    gridTemplateRows: '1fr',
-    columnGap: '30px',
-    margin: '0 auto'
-  },
-
-  serviceBlock: {
-    display: 'grid',
-    placeSelf: 'center',
-    height: '80%',
-    gridTemplateColumns: '1fr',
-    gridTemplateRows: '40% 25% 25% 10%'
+    gridRowEnd: '5',
+    backgroundColor: '#252526',
+    border: 'none',
+    color: 'white',
+    padding: '10px 32px',
+    textAlign: 'center',
+    textDecoration: 'none',
+    display: 'inline-block',
   }
 
 })

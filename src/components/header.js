@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { StyleSheet, css } from 'aphrodite'
+import { screenSize } from "./styles/styles"
 
 export default () => {
   const data = useStaticQuery (
@@ -45,7 +46,18 @@ export default () => {
       gridTemplateColumns: '1fr 10fr 1fr',
       gridTemplateRows: '1fr 6fr 1fr',
       background: 'black',
-      overflow: 'hidden'
+      overflow: 'hidden',
+      minHeight: '400px',
+      [screenSize.tablet] : {
+        height: '60vh'
+      },
+      [screenSize.smartphoneLandscape] : {
+        height: '55vh'
+      },
+      [screenSize.smartphone] : {
+        height: '50vh',
+        minHeight: '300px'
+      }
     },
 
     backimg: {
@@ -68,5 +80,5 @@ export default () => {
       placeSelf: 'center',
       zIndex: '30'
     }
-    
+
   })
