@@ -65,13 +65,12 @@ const servicesStyles = StyleSheet.create({
 
   container: {
     width: '100vw',
-    height: '45vh',
+    height: '50vh',
     background: '#101213',
     overflow: 'hidden',
     color: 'white',
-    minHeight: '500px',
-    marginTop: '50px',
-    marginBottom: '50px',
+    margin: '0 auto',
+    minHeight: '400px',
     [screenSize.tablet]: {
       height: '160vh',
       width: '70vw',

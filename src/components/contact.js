@@ -6,6 +6,7 @@ import PhoneInput from 'react-phone-number-input'
 import 'react-phone-number-input/style.css'
 import { screenSize, titleTransform } from "./styles/styles"
 import speechBubbleIndicator from '../images/speechbubble-indicator.svg'
+import monkey from'../images/monkey.png'
 
 export default () => {
   const data = useStaticQuery(
@@ -35,6 +36,10 @@ export default () => {
       </h1>
       <div className={css(contactStyles.wrapper)}>
         <div className={css(contactStyles.columnOne)}>
+          <img
+            className={css(contactStyles.monkey)}
+            src={monkey}>
+          </img>
         </div>
         <div className={css(contactStyles.columnTwo)}>
           <div className={css(contactStyles.speechBubbleContainer)}>
@@ -60,7 +65,7 @@ export default () => {
             <input
               className={css(contactStyles.inputName)}
               name="name"
-              placeholder="naam"
+              placeholder="Naam"
               ref={register({
                 validate: value => value !== "admin" || "Nice try!"
               })}
@@ -70,7 +75,7 @@ export default () => {
             <input
               className={css(contactStyles.inputEmail)}
               name="email"
-              placeholder="email"
+              placeholder="E-mail"
               ref={register({
                 required: "Required",
                 pattern: {
@@ -83,19 +88,24 @@ export default () => {
 
             <PhoneInput
               className={css(contactStyles.inputPhone)}
-              placeholder="Enter phone number"
+              placeholder="Telefoonnummer"
               value={value}
               onChange={setValue}
             />
-
-            <input
-              className={css(contactStyles.inputMessage)}
-              name="message"
-              placeholder="bericht"
-            />
             {errors.phone && errors.phone.message}
 
-            <button type="submit">Submit</button>
+            <textarea
+              className={css(contactStyles.inputMessage)}
+              name="message"
+              placeholder="Bericht"
+              ref={register({
+                required: "Required",
+              })}
+            />
+
+            <button
+              className={css(contactStyles.button)}
+              type="submit">VERSTUREN</button>
           </form>
         </div>
       </div>
@@ -106,31 +116,49 @@ export default () => {
 const contactStyles = StyleSheet.create({
 
   container: {
+    display: 'grid',
+    gridTemplateColumns: '5% auto 5%',
+    gridTemplateRows: '18% auto',
     width: '100vw',
     height: '100vh',
-    minHeight: '600px',
+    minHeight: '800px',
     background: '#f7f7f7',
     overflow: 'hidden',
   },
 
   title: {
-    margin: '40px 0 30px 0'
+    gridColumnStart: '2',
+    gridColumnEnd: '3',
+    gridRowStart: '1',
+    gridRowEnd: '2'
   },
 
   wrapper: {
     display: 'flex',
-    height: '70vh',
-    margin: '8vw'
+    height: '100%',
+    gridColumnStart: '2',
+    gridColumnEnd: '3',
+    gridRowStart: '2',
+    gridRowEnd: '3',
   },
 
   columnOne: {
-    flexBasis: "25%"
+    display: 'flex',
+    flexFlow: 'flex-reverse',
+    justifyContent: 'center',
+    alignItems: 'flex-end',
+    flexBasis: "25%",
+  },
+
+  monkey: {
+    width: '100%',
+    marginBottom: '0'
   },
 
   columnTwo: {
     flexBasis: "35%",
     width: '100%',
-    height: '100%'
+    height: '100%',
   },
 
   speechBubbleContainer: {
@@ -160,17 +188,21 @@ const contactStyles = StyleSheet.create({
   },
 
   contactInfo: {
+    minHeight: '400px',
     fontSize: '2.1vh',
     lineHeight: '3.4vh'
   },
 
   columnThree: {
+    minHeight: '400px',
+    paddingTop: '6.5%',
+    paddingBottom: '2%',
     flexBasis: "40%"
   },
 
   form: {
     width: '100%',
-    height: '80%',
+    height: '100%',
     display: 'flex',
     flexWrap: 'wrap',
   },
@@ -178,33 +210,50 @@ const contactStyles = StyleSheet.create({
   inputName: {
     flexBasis: '100%',
     border: 'none',
-    height: '5vh',
+    height: '6vh',
     fontSize: '2vh',
-    paddingLeft: '15px',
+    paddingLeft: '1vw',
   },
 
   inputEmail: {
     flexBasis: '100%',
     border: 'none',
-    height: '5vh',
+    height: '6vh',
     fontSize: '2vh',
-    paddingLeft: '15px',
+    paddingLeft: '1vw',
   },
 
   inputPhone: {
     flexBasis: '100%',
-    border: 'none',
-    height: '5vh',
-    fontSize: '2vh',
-    paddingLeft: '15px',
+    height: '6vh',
   },
 
   inputMessage: {
     flexBasis: '100%',
     border: 'none',
-    height: '20vh',
+    height: '30vh',
     fontSize: '2vh',
-    paddingLeft: '15px',
+    padding: '1vw',
+    resize: 'none',
+  },
+
+  button: {
+    backgroundColor: '#252526',
+    border: 'none',
+    color: 'white',
+    padding: '10px 32px',
+    textAlign: 'center',
+    textDecoration: 'none',
+    display: 'inline-block',
+    ':hover': {
+        cursor: 'pointer',
+        backgroundColor: '#fae73c',
+        color: '#252526'
+    },
+    ':active': {
+      backgroundColor: '#5b8e15',
+      color: 'white'
+    }
   }
 
 })
