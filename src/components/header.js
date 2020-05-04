@@ -62,6 +62,8 @@ export default () => {
 
     backimg: {
       height: '100%',
+      minHeight: '200px',
+      minWidth: '200px',
       width: '100%',
       gridColumnStart: '1',
       gridColumnEnd: '4',
@@ -74,7 +76,7 @@ export default () => {
     },
 
     topimg: {
-      height: '100%',
+      height: '40vh',
       gridColumnStart: '2',
       gridColumnEnd: '3',
       gridRowStart: '2',

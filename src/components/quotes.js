@@ -80,7 +80,7 @@ const quotesStyles = StyleSheet.create({
     display: 'grid',
     width: '100vw',
     height: '45vh',
-    minHeight: '350px',
+    minHeight: '250px',
     gridTemplateColumns: '1fr 10fr 1fr',
     gridTemplateRows: '1fr 6fr 1fr',
     background: 'black',
@@ -104,7 +104,7 @@ const quotesStyles = StyleSheet.create({
   wrapper: {
     textAlign: 'center',
     verticalAlign: 'middle',
-    height: '70%',
+    height: '100%',
     width: '80%',
     gridColumnStart: '2',
     gridColumnEnd: '3',
@@ -129,30 +129,32 @@ const quotesStyles = StyleSheet.create({
   },
 
   quoteContainer: {
-    margin: '0 auto',
+    height: '30vh',
+    minHeight: '250px',
     display: 'flex',
     flexWrap: 'wrap',
-    justifyItems: 'center',
-    alignItems: 'center',
   },
 
   sign: {
+    flexBasis: '100%',
+    position: 'relative',
+    left: '-38%',
+    top: '20%',
     color: 'white',
-    flexBasis: '5vw',
+    maxHeight: '3vw',
     pointerEvents: 'none',
     userSelect: 'none'
   },
 
   quote: {
     display: 'inline-block',
-    height: '100%',
-    width: '100%',
+    height: '80%',
     zIndex: '30',
-    backgroundColor: 'rgba(0,0,0,0)',
     color: 'white',
     flexBasis: '85%',
     fontSize: '1.7vw',
-    marginLeft: '5%',
+    marginLeft: '15%',
+    marginRight: '15%',
     [screenSize.tablet]: {
       fontSize: '2.4vw',
     },

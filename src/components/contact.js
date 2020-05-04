@@ -170,7 +170,7 @@ const contactStyles = StyleSheet.create({
 
   form: {
     width: '100%',
-    height: '60%',
+    height: '80%',
     display: 'flex',
     flexWrap: 'wrap',
   },
@@ -202,7 +202,7 @@ const contactStyles = StyleSheet.create({
   inputMessage: {
     flexBasis: '100%',
     border: 'none',
-    height: '5vh',
+    height: '20vh',
     fontSize: '2vh',
     paddingLeft: '15px',
   }
