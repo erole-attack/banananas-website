@@ -69,8 +69,9 @@ const servicesStyles = StyleSheet.create({
     background: '#101213',
     overflow: 'hidden',
     color: 'white',
-    margin: '0 auto',
-    minHeight: '400px',
+    minHeight: '500px',
+    marginTop: '50px',
+    marginBottom: '50px',
     [screenSize.tablet]: {
       height: '160vh',
       width: '70vw',
