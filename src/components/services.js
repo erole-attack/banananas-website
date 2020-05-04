@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "gatsby"
 import { graphql, useStaticQuery } from 'gatsby'
 import { StyleSheet, css } from 'aphrodite'
 import { screenSize } from "./styles/styles"
@@ -52,7 +53,7 @@ export default () => {
                 { __html: trimServiceBlockText(edge.node.description.childMarkdownRemark.html)}
               }
             />
-            <button type="button" className={css(servicesStyles.button)}>LEES MEER</button>
+            <Link to="/page-2/" type="button" className={css(servicesStyles.button)}>LEES MEER</Link>
           </div>
         )}
       </div>
@@ -109,19 +110,30 @@ const servicesStyles = StyleSheet.create({
 
   serviceBlock: {
     display: 'grid',
-    width: '260px',
-    height: '280px',
+    width: '20vw',
+    height: '40vh',
     gridTemplateColumns: '1fr',
     gridTemplateRows: '30% 25% 30% 15%',
     marginLeft: '35px',
-    marginRight: '35px'
+    marginRight: '35px',
+    [screenSize.tablet]: {
+      width: '30vw'
+    },
+    [screenSize.smartphoneLandscape]: {
+      width: '50vw'
+    },
+    [screenSize.smartphone]: {
+      width: '85vw'
+    }
   },
 
   icons: {
-    height: '100px',
+    height: '14vh',
     placeSelf: 'center',
     gridRowStart: '1',
-    gridRowEnd: '2'
+    gridRowEnd: '2',
+    pointerEvents: 'none',
+    userSelect: 'none'
   },
 
   title: {
@@ -146,6 +158,15 @@ const servicesStyles = StyleSheet.create({
     textAlign: 'center',
     textDecoration: 'none',
     display: 'inline-block',
+    ':hover': {
+        cursor: 'pointer',
+        backgroundColor: '#fae73c',
+        color: '#252526'
+    },
+    ':active': {
+      backgroundColor: '#5b8e15',
+      color: 'white'
+    }
   }
 
 })

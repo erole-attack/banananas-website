@@ -99,6 +99,10 @@ const workStyles = StyleSheet.create({
     textAlign: 'center',
     textDecoration: 'none',
     display: 'inline-block',
+    ':hover': {
+        cursor: 'pointer',
+        color: '#5b8e15'
+    },
   },
 
   wrapper: {
@@ -114,9 +118,9 @@ const workStyles = StyleSheet.create({
   container: {
     position: 'relative',
     display: 'grid',
-    width: '400px',
-    height: '400px',
-    padding: '10px',
+    width: '27.5vw',
+    height: '27.5vw',
+    padding: '0.5vw',
     gridTemplateColumns: '100%',
     gridTemplateRows: '10% 80% 10%',
     placeContent: 'center',
@@ -127,16 +131,19 @@ const workStyles = StyleSheet.create({
       }
     },
     [screenSize.tablet]: {
-      width: '350px',
-      height: '350px'
+      width: '45vw',
+      height: '45vw',
+      padding: '1vw'
     },
     [screenSize.smartphoneLandscape]: {
-      width: '200px',
-      height: '200px'
+      width: '40vw',
+      height: '40vw',
+      padding: '2vw'
     },
     [screenSize.smartphone]: {
-      width: '400px',
-      height: '400px'
+      width: '90vw',
+      height: '90vw',
+      padding: '2.5vw',
     }
   },
 
@@ -146,18 +153,32 @@ const workStyles = StyleSheet.create({
     gridColumnStart: '1',
     gridColumnEnd: '4',
     gridRowStart: '1',
-    gridRowEnd: '4'
+    gridRowEnd: '4',
+    objectFit: 'cover',
+    width: '100%',
   },
 
   overlay: {
     placeSelf: 'center',
-    height: '90%',
-    width: '90%',
+    height: '25vw',
+    width: '25vw',
     gridColumnStart: '1',
     gridColumnEnd: '4',
     gridRowStart: '1',
     gridRowEnd: '4',
-    opacity: '0'
+    opacity: '0',
+    [screenSize.tablet]: {
+      width: '42vw',
+      height: '42vw'
+    },
+    [screenSize.smartphoneLandscape]: {
+      width: '42vw',
+      height: '42vw'
+    },
+    [screenSize.smartphone]: {
+      width: '85vw',
+      height: '85vw'
+    }
   },
 
   overlayText: {

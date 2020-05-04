@@ -4,7 +4,7 @@ html {
   font-family: 'Montserrat', sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  font-size: 14px;
+  font-size: 1.8vh;
   font-weight: 300;
   color: #303133;
   overflow-x: hidden;
@@ -37,7 +37,10 @@ h2 {
 h3 {
   line-height: 0px;
 }
-
-.slider-control-centerleft, .slider-control-centerright{
+button {
+  font-weight: 600;
+  font-size: 1.6vh;
+}
+.slider-control-centerleft, .slider-control-centerright {
   display: none;
 }

@@ -41,7 +41,7 @@ export default () => {
       <Carousel className={css(quotesStyles.wrapper)}
         autoplay = {true}
         swiping = {true}
-        dragging = {false}
+        dragging = {true}
         wrapAround = {true}
         slidesToScroll = {'auto'}
         defaultControlsConfig={{
@@ -76,6 +76,7 @@ export default () => {
 const quotesStyles = StyleSheet.create({
 
   container: {
+    marginTop: '50px',
     display: 'grid',
     width: '100vw',
     height: '45vh',
@@ -95,7 +96,9 @@ const quotesStyles = StyleSheet.create({
     gridRowStart: '1',
     gridRowEnd: '4',
     objectFit: 'cover',
-    opacity: '0.3'
+    opacity: '0.3',
+    pointerEvents: 'none',
+    userSelect: 'none'
   },
 
   wrapper: {
@@ -108,6 +111,9 @@ const quotesStyles = StyleSheet.create({
     gridRowStart: '2',
     gridRowEnd: '3',
     placeSelf: 'center',
+    ':focus': {
+      outline: 'none'
+    },
     [screenSize.tablet]: {
       width: '100%',
       height: '90%'
@@ -132,7 +138,9 @@ const quotesStyles = StyleSheet.create({
 
   sign: {
     color: 'white',
-    flexBasis: '10%',
+    flexBasis: '5vw',
+    pointerEvents: 'none',
+    userSelect: 'none'
   },
 
   quote: {

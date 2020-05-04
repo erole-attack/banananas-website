@@ -32,7 +32,7 @@ const titleStyles = StyleSheet.create({
   },
 
   words: {
-    fontSize: '28px',
+    fontSize: '4Vh',
     padding: '5px'
   }
 

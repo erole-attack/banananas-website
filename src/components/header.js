@@ -68,7 +68,9 @@ export default () => {
       gridRowStart: '1',
       gridRowEnd: '4',
       objectFit: 'cover',
-      opacity: '0.3'
+      opacity: '0.3',
+      pointerEvents: 'none',
+      userSelect: 'none'
     },
 
     topimg: {
@@ -78,7 +80,9 @@ export default () => {
       gridRowStart: '2',
       gridRowEnd: '3',
       placeSelf: 'center',
-      zIndex: '30'
+      zIndex: '30',
+      pointerEvents: 'none',
+      userSelect: 'none'
     }
 
   })

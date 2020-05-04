@@ -139,14 +139,10 @@ export default () => {
         minHeight: '750px'
       },
       [screenSize.smartphoneLandscape]: {
-        height: '70vh',
-        paddingBottom: '10vh',
-        minHeight: '700px'
+        display: 'none'
       },
       [screenSize.smartphone]: {
-        height: '60vh',
-        paddingBottom: '5vh',
-        minHeight: '400px'
+        display: 'none'
       }
     },
 
@@ -164,12 +160,6 @@ export default () => {
       top: '50%',
       left: '50%',
       transform: 'translate(-50%, -50%)',
-      [screenSize.smartphoneLandscape]: {
-        left: '38%'
-      },
-      [screenSize.smartphone]: {
-        left: '38%'
-      }
     },
 
     speechBubbleContainer: {
@@ -179,20 +169,7 @@ export default () => {
       position: 'absolute',
       top: '10%',
       right: '35%',
-      fontSize: '0.9vw',
-      [screenSize.tablet]: {
-        fontSize: '1.2vw',
-        top: '30%',
-        right: '40%'
-      },
-      [screenSize.smartphoneLandscape]: {
-        fontSize: '1.5vw',
-        top: '35%',
-        right: '37%'
-      },
-      [screenSize.smartphone]: {
-        display: 'none'
-      }
+      fontSize: '0.9vw'
     },
 
     speechBubbleTextArea: {
@@ -207,9 +184,10 @@ export default () => {
 
     speechBubbleIndicator: {
       color: '#0c0803',
-      width: '20px',
+      width: '1.6vw',
       position: 'relative',
-      right: '-70%'
+      right: '-70%',
+      top: '-1%'
     },
 
     captionContainer: {
@@ -220,101 +198,59 @@ export default () => {
       top: '50%',
       left: '50%',
       transform: 'translate(-50%, -50%)',
-      [screenSize.smartphoneLandscape]: {
-        left: '38%'
-      },
-      [screenSize.smartphone]: {
-        left: '38%'
-      }
     },
 
     captionBlock: {
-      fontSize: '0.9vw',
-      [screenSize.tablet]: {
-        fontSize: '1.2vw'
-      },
-      [screenSize.smartphoneLandscape]: {
-        fontSize: '1.5vw'
-      },
-      [screenSize.smartphone]: {
-        fontSize: '2.2vw'
-      }
+      fontSize: '0.9vw'
     },
 
     lineOne: {
       display: 'inline-block',
       position: 'absolute',
-      top: '-50%',
-      right: '-2%',
-      width: '200%',
-      height: '200%',
+      top: '19%',
+      right: '82%',
+      width: '30%',
+      height: '30%',
+      userSelect: 'none'
     },
 
     lineTwo: {
       display: 'inline-block',
       position: 'absolute',
-      top: '-50%',
-      right: '0%',
-      width: '200%',
-      height: '200%',
-      [screenSize.tablet]: {
-        top: '-80%'
-      },
-      [screenSize.smartphoneLandscape]: {
-        top: '-80%'
-      },
-      [screenSize.smartphone]: {
-        top: '-80%'
-      }
+      top: '11.5%',
+      right: '37%',
+      width: '53%',
+      height: '53%',
+      userSelect: 'none'
     },
 
     lineThree: {
       display: 'inline-block',
       position: 'absolute',
-      top: '-45%',
-      right: '0%',
-      width: '200%',
-      height: '200%',
-      [screenSize.tablet]: {
-        top: '-12%',
-        right: '78%'
-      },
-      [screenSize.smartphoneLandscape]: {
-        top: '-12%',
-        right: '78%'
-      },
-      [screenSize.smartphone]: {
-        top: '-12%',
-        right: '78%'
-      }
+      top: '50%',
+      right: '9%',
+      width: '18%',
+      height: '18%',
+      userSelect: 'none'
     },
 
     lineFour: {
       display: 'inline-block',
       position: 'absolute',
-      top: '-50%',
-      right: '0%',
-      width: '200%',
-      height: '200%',
+      top: '76%',
+      right: '25%',
+      width: '24%',
+      height: '24%',
+      userSelect: 'none'
     },
 
     bananaPeel: {
       display: 'inline-block',
       position: 'absolute',
-      top: '82%',
+      top: '82.5%',
       right: '0%',
       width: '23%',
-      height: '25%',
-      [screenSize.smartphoneLandscape]: {
-        width: '40%',
-        top: '81%',
-        right: '-17%'
-      },
-      [screenSize.smartphone]: {
-        width: '42%',
-        top: '79%',
-        right: '-19%'
-      }
+      height: '25%'
     },
 
     pineappleShootApex:{
@@ -323,20 +259,7 @@ export default () => {
       top: '63%',
       right: '-0%',
       width: '15%',
-      height: '25%',
-      [screenSize.tablet]: {
-        top: '102%',
-        right: '78%'
-      },
-      [screenSize.smartphoneLandscape]: {
-        top: '101%',
-        right: '78%'
-      },
-      [screenSize.smartphone]: {
-        width: '35%',
-        top: '99%',
-        right: '57%'
-      }
+      height: '25%'
     },
 
     totalBanana:{
@@ -346,16 +269,7 @@ export default () => {
       right: '51%',
       width: '25%',
       height: '25%',
-      textAlign: 'center',
-      [screenSize.tablet]: {
-        bottom: '84%'
-      },
-      [screenSize.smartphoneLandscape]: {
-        bottom: '87%'
-      },
-      [screenSize.smartphone]: {
-        bottom: '100%'
-      }
+      textAlign: 'center'
     },
 
     bananaFlesh:{
@@ -364,17 +278,7 @@ export default () => {
       top: '14%',
       right: '69%',
       width: '25%',
-      height: '25%',
-      [screenSize.smartphoneLandscape]: {
-        width: '40%',
-        top: '13%',
-        right: '54%'
-      },
-      [screenSize.smartphone]: {
-        width: '65%',
-        top: '11%',
-        right: '28%'
-      }
-
+      height: '25%'
     }
+
   })
