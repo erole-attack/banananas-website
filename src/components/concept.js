@@ -126,12 +126,14 @@ export default () => {
   const conceptStyles = StyleSheet.create({
 
     container: {
+      marginTop: '50px',
+      marginBottom: '50px',
       display: 'flex',
       width: '100vw',
       height: '100vh',
       alignItems: 'center',
       justifyContent: 'center',
-      minHeight: '1000px',
+      minHeight: '850px',
       overflow: 'hidden',
       [screenSize.tablet]: {
         height: '80vh',
