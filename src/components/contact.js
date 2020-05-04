@@ -121,7 +121,7 @@ const contactStyles = StyleSheet.create({
     gridTemplateRows: '18% auto',
     width: '100vw',
     height: '100vh',
-    minHeight: '800px',
+    minHeight: '400px',
     background: '#f7f7f7',
     overflow: 'hidden',
   },
@@ -226,6 +226,11 @@ const contactStyles = StyleSheet.create({
   inputPhone: {
     flexBasis: '100%',
     height: '6vh',
+    ':nth-child(1n) > input': {
+      height: '100%',
+      fontSize: '2vh',
+      paddingLeft: '1vw',
+    }
   },
 
   inputMessage: {

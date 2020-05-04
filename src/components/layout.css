@@ -43,9 +43,14 @@ button {
 }
 input {
   font-family: 'Montserrat', sans-serif;
+  border: none;
 }
 textarea {
   font-family: 'Montserrat', sans-serif;
+  border: none;
+  height: 30vh;
+  font-size: 2vh;
+  padding: 1vw;
 }
 .slider-control-centerleft, .slider-control-centerright {
   display: none;
