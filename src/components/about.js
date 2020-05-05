@@ -51,8 +51,10 @@ export default () => {
         height: '45vh'
       },
       [screenSize.smartphone]: {
-        height: '50vh',
-        minHeight: '400px'
+        backgroundColor: '#101213',
+        color: 'white',
+        height: '35vh',
+        minHeight: '200px'
       }
     },
 
@@ -68,5 +70,11 @@ export default () => {
         width: '80%',
       }
     },
+
+    description: {
+      [screenSize.smartphone]: {
+        color: '#E1E1E1'
+      }
+    }
 
   })

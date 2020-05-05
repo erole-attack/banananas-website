@@ -85,7 +85,10 @@ const quotesStyles = StyleSheet.create({
     gridTemplateRows: '1fr 6fr 1fr',
     background: 'black',
     overflow: 'hidden',
-    justifyItems: 'center'
+    justifyItems: 'center',
+    [screenSize.smartphone]: {
+      marginTop: '0'
+    }
   },
 
   backimg: {
@@ -124,7 +127,7 @@ const quotesStyles = StyleSheet.create({
     },
     [screenSize.smartphone]: {
       width: '100%',
-      height: '100%'
+      height: '80%'
     }
   },
 
@@ -185,7 +188,7 @@ const quotesStyles = StyleSheet.create({
     },
     [screenSize.smartphone]: {
       fontSize: '2.1vw',
-      top: '20%',
+      top: '0%',
     }
   }
 

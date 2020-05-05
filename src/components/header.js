@@ -55,7 +55,7 @@ export default () => {
         height: '55vh'
       },
       [screenSize.smartphone] : {
-        height: '50vh',
+        height: '65vh',
         minHeight: '300px'
       }
     },
@@ -77,6 +77,7 @@ export default () => {
 
     topimg: {
       height: '40vh',
+      minHeight: '300px',
       gridColumnStart: '2',
       gridColumnEnd: '3',
       gridRowStart: '2',

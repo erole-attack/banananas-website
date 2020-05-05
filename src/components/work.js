@@ -159,6 +159,9 @@ const workStyles = StyleSheet.create({
   },
 
   overlay: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
     placeSelf: 'center',
     height: '25vw',
     width: '25vw',
@@ -182,12 +185,17 @@ const workStyles = StyleSheet.create({
   },
 
   overlayText: {
-    fontSize: '24px',
+    fontSize: '2vw',
     color: 'white',
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)'
+    [screenSize.tablet]: {
+      fontSize: '20pt',
+    },
+    [screenSize.smartphoneLandscape]: {
+      fontSize: '16pt',
+    },
+    [screenSize.smartphone]: {
+      fontSize: '18pt',
+    }
   }
 
 })

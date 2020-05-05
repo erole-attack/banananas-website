@@ -32,8 +32,17 @@ const titleStyles = StyleSheet.create({
   },
 
   words: {
-    fontSize: '4Vh',
-    padding: '5px'
+    fontSize: '2.5vw',
+    padding: '0.5vw',
+    [screenSize.tablet]: {
+      fontSize: '24pt'
+    },
+    [screenSize.smartphoneLandscape]: {
+      fontSize: '22pt'
+    },
+    [screenSize.smartphone]: {
+      fontSize: '18pt'
+    }
   }
 
 })

@@ -6,7 +6,6 @@ import PhoneInput from 'react-phone-number-input'
 import 'react-phone-number-input/style.css'
 import { screenSize, titleTransform } from "./styles/styles"
 import speechBubbleIndicator from '../images/speechbubble-indicator.svg'
-import monkey from'../images/monkey.png'
 
 export default () => {
   const data = useStaticQuery(
@@ -35,12 +34,7 @@ export default () => {
         {titleTransform(data.contentfulContact)}
       </h1>
       <div className={css(contactStyles.wrapper)}>
-        <div className={css(contactStyles.columnOne)}>
-          <img
-            className={css(contactStyles.monkey)}
-            src={monkey}>
-          </img>
-        </div>
+        <div className={css(contactStyles.columnOne)}/>
         <div className={css(contactStyles.columnTwo)}>
           <div className={css(contactStyles.speechBubbleContainer)}>
             <div className={css(contactStyles.speechBubbleTextArea)}>
@@ -120,10 +114,23 @@ const contactStyles = StyleSheet.create({
     gridTemplateColumns: '5% auto 5%',
     gridTemplateRows: '18% auto',
     width: '100vw',
-    height: '100vh',
-    minHeight: '400px',
+    height: '90vh',
+    minHeight: '700px',
     background: '#f7f7f7',
     overflow: 'hidden',
+    [screenSize.tablet]: {
+      minHeight: '700px',
+      gridTemplateColumns: '10% auto 10%',
+    },
+    [screenSize.smartphoneLandscape]: {
+      minHeight: '700px',
+      gridTemplateColumns: '10% auto 10%',
+    },
+    [screenSize.smartphone]: {
+      minHeight: '850px',
+      gridTemplateColumns: '2% auto 2%',
+      gridTemplateRows: '10% auto',
+    }
   },
 
   title: {
@@ -135,30 +142,50 @@ const contactStyles = StyleSheet.create({
 
   wrapper: {
     display: 'flex',
+    flexWrap: 'wrap',
     height: '100%',
     gridColumnStart: '2',
     gridColumnEnd: '3',
     gridRowStart: '2',
     gridRowEnd: '3',
+    [screenSize.smartphone]: {
+      display: 'grid',
+      gridTemplateColumns: '100%',
+      gridTemplateRows: '30% 5% 65%',
+    }
   },
 
   columnOne: {
     display: 'flex',
-    flexFlow: 'flex-reverse',
-    justifyContent: 'center',
-    alignItems: 'flex-end',
     flexBasis: "25%",
-  },
-
-  monkey: {
-    width: '100%',
-    marginBottom: '0'
+    [screenSize.tablet]: {
+      display: 'none'
+    },
+    [screenSize.smartphoneLandscape]: {
+      display: 'none'
+    },
+    [screenSize.smartphone]: {
+      display: 'none'
+    }
   },
 
   columnTwo: {
     flexBasis: "35%",
     width: '100%',
     height: '100%',
+    [screenSize.tablet]: {
+      flexBasis: "50%"
+    },
+    [screenSize.smartphoneLandscape]: {
+      flexBasis: "50%"
+    },
+    [screenSize.smartphone]: {
+      display: 'flex',
+      justifyContent: 'center',
+      textAlign: 'center',
+      gridRowStart: '1',
+      gridRowEnd: '2',
+    }
   },
 
   speechBubbleContainer: {
@@ -166,7 +193,16 @@ const contactStyles = StyleSheet.create({
     gridTemplateColumns: '1',
     gridTemplateRows: 'auto 1vh',
     fontSize: '1.6vw',
-    marginBottom: '4.5vh'
+    marginBottom: '4.5vh',
+    [screenSize.tablet]: {
+      fontSize: '2.6vw'
+    },
+    [screenSize.smartphoneLandscape]: {
+      fontSize: '3vw'
+    },
+    [screenSize.smartphone]: {
+
+    }
   },
 
   speechBubbleTextArea: {
@@ -176,7 +212,10 @@ const contactStyles = StyleSheet.create({
     padding: '2vw',
     color: 'white',
     backgroundColor: '#0c0803',
-    borderRadius: '12px'
+    borderRadius: '12px',
+    [screenSize.smartphone]: {
+      display: 'none'
+    }
   },
 
   speechBubbleIndicator: {
@@ -184,24 +223,54 @@ const contactStyles = StyleSheet.create({
     width: '1.6vw',
     position: 'relative',
     right: '-70%',
-    top: '-1%'
+    top: '-1%',
+    [screenSize.smartphone]: {
+      display: 'none'
+    }
   },
 
   contactInfo: {
     minHeight: '400px',
-    fontSize: '2.1vh',
-    lineHeight: '3.4vh'
+    fontSize: '1.2vw',
+    lineHeight: '1.8vw',
+    [screenSize.tablet]: {
+      fontSize: '14pt',
+      lineHeight: '22pt',
+    },
+    [screenSize.smartphoneLandscape]: {
+      fontSize: '12pt',
+      lineHeight: '20pt',
+    },
+    [screenSize.smartphone]: {
+      fontSize: '12pt',
+      lineHeight: '20pt'
+    }
   },
 
   columnThree: {
-    minHeight: '400px',
-    paddingTop: '6.5%',
+    minHeight: '450px',
+    paddingTop: '5%',
     paddingBottom: '2%',
-    flexBasis: "40%"
+    flexBasis: "40%",
+    [screenSize.tablet]: {
+      paddingTop: '0',
+      flexBasis: "50%",
+    },
+    [screenSize.smartphoneLandscape]: {
+      paddingTop: '0',
+      flexBasis: "50%",
+    },
+    [screenSize.smartphone]: {
+      minHeight: '0px',
+      paddingTop: '0',
+      paddingBottom: '8%',
+      gridRowStart: '3',
+      gridRowEnd: '4'
+    }
   },
 
   form: {
-    width: '100%',
+    width: '95%',
     height: '100%',
     display: 'flex',
     flexWrap: 'wrap',
@@ -210,43 +279,91 @@ const contactStyles = StyleSheet.create({
   inputName: {
     flexBasis: '100%',
     border: 'none',
-    height: '6vh',
-    fontSize: '2vh',
+    height: '8%',
+    fontSize: '1.1vw',
     paddingLeft: '1vw',
+    [screenSize.tablet]: {
+      fontSize: '1.4vw',
+      paddingLeft: '1.2vw',
+    },
+    [screenSize.smartphoneLandscape]: {
+      fontSize: '1.7vw',
+      paddingLeft: '1.4vw',
+    },
+    [screenSize.smartphone]: {
+      fontSize: '2.6vw',
+      paddingLeft: '2vw'
+    }
   },
 
   inputEmail: {
     flexBasis: '100%',
     border: 'none',
-    height: '6vh',
-    fontSize: '2vh',
+    height: '8%',
+    fontSize: '1.1vw',
     paddingLeft: '1vw',
+    [screenSize.tablet]: {
+      fontSize: '1.4vw',
+      paddingLeft: '1.2vw',
+    },
+    [screenSize.smartphoneLandscape]: {
+      fontSize: '1.7vw',
+      paddingLeft: '1.4vw',
+    },
+    [screenSize.smartphone]: {
+      fontSize: '2.6vw',
+      paddingLeft: '2vw'
+    }
   },
 
   inputPhone: {
     flexBasis: '100%',
-    height: '6vh',
+    height: '8%',
     ':nth-child(1n) > input': {
       height: '100%',
-      fontSize: '2vh',
+      fontSize: '1.1vw',
       paddingLeft: '1vw',
+      [screenSize.tablet]: {
+        fontSize: '1.4vw',
+        paddingLeft: '1.2vw',
+      },
+      [screenSize.smartphoneLandscape]: {
+        fontSize: '1.7vw',
+        paddingLeft: '1.4vw',
+      },
+      [screenSize.smartphone]: {
+        fontSize: '2.6vw',
+        paddingLeft: '2vw'
+      }
     }
   },
 
   inputMessage: {
     flexBasis: '100%',
     border: 'none',
-    height: '30vh',
-    fontSize: '2vh',
+    height: '50%',
+    fontSize: '1.1vw',
     padding: '1vw',
     resize: 'none',
+    [screenSize.tablet]: {
+      fontSize: '1.4vw',
+      paddingLeft: '1.2vw',
+    },
+    [screenSize.smartphoneLandscape]: {
+      fontSize: '1.7vw',
+      paddingLeft: '1.4vw',
+    },
+    [screenSize.smartphone]: {
+      fontSize: '2.6vw',
+      paddingLeft: '2vw'
+    }
   },
 
   button: {
     backgroundColor: '#252526',
     border: 'none',
     color: 'white',
-    padding: '10px 32px',
+    padding: '5px 20px',
     textAlign: 'center',
     textDecoration: 'none',
     display: 'inline-block',
@@ -258,6 +375,9 @@ const contactStyles = StyleSheet.create({
     ':active': {
       backgroundColor: '#5b8e15',
       color: 'white'
+    },
+    [screenSize.smartphone]: {
+
     }
   }
 

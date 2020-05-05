@@ -133,7 +133,7 @@ export default () => {
       height: '100vh',
       alignItems: 'center',
       justifyContent: 'center',
-      minHeight: '1050px',
+      minHeight: '650px',
       overflow: 'hidden',
       [screenSize.tablet]: {
         height: '80vh',

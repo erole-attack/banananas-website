@@ -79,13 +79,13 @@ const servicesStyles = StyleSheet.create({
     [screenSize.smartphoneLandscape]: {
       height: '160vh',
       width: '80vw',
-      minHeight: '1200px'
+      minHeight: '1000px'
     },
     [screenSize.smartphone]: {
       height: '160vh',
-      width: '60vw',
-      minWidth: '350px',
-      minHeight: '1200px'
+      minWidth: '60%',
+      minHeight: '1200px',
+      background: '#101213',
     }
   },
 
@@ -112,28 +112,41 @@ const servicesStyles = StyleSheet.create({
     display: 'grid',
     width: '20vw',
     height: '40vh',
+    minHeight: '280px',
     gridTemplateColumns: '1fr',
     gridTemplateRows: '30% 25% 30% 15%',
     marginLeft: '35px',
     marginRight: '35px',
     [screenSize.tablet]: {
-      width: '30vw'
+      width: '30vw',
+      minHeight: '340px',
     },
     [screenSize.smartphoneLandscape]: {
       width: '50vw'
     },
     [screenSize.smartphone]: {
+      background: '#101213',
+      padding: '20px',
       width: '85vw'
     }
   },
 
   icons: {
-    height: '14vh',
+    height: '7.5vw',
     placeSelf: 'center',
     gridRowStart: '1',
     gridRowEnd: '2',
     pointerEvents: 'none',
-    userSelect: 'none'
+    userSelect: 'none',
+    [screenSize.tablet]: {
+      height: '90px'
+    },
+    [screenSize.smartphoneLandscape]: {
+      height: '80px'
+    },
+    [screenSize.smartphone]: {
+      height: '80px'
+    }
   },
 
   title: {
@@ -145,6 +158,7 @@ const servicesStyles = StyleSheet.create({
   description: {
     gridRowStart: '3',
     gridRowEnd: '4',
+    textAlign: 'center'
   },
 
   button: {

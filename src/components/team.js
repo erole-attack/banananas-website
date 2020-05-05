@@ -55,14 +55,17 @@ export default () => {
 const teamStyles = StyleSheet.create({
 
   title: {
-    margin: '40px 0 30px 0'
+    margin: '20px 0 30px 0'
   },
 
   container: {
     display: 'flex',
     flexWrap: 'wrap',
     minHeight: '500px',
-    paddingBottom: '70px'
+    paddingBottom: '70px',
+    [screenSize.smartphone]: {
+      paddingBottom: '0px'
+    }
   },
 
   headContainer: {
@@ -75,12 +78,15 @@ const teamStyles = StyleSheet.create({
     width: '60vw',
     height: '25vh',
     overflow: 'hidden',
-    minHeight: '160px',
+    minHeight: '200px',
     textAlign: 'center',
     '@media only screen and (min-width: 200px) and (max-width: 680px)': {
       width: '80vw',
       minHeight: '160px',
     },
+    [screenSize.smartphone]: {
+      marginBottom: '20px'
+    }
   },
 
   description: {
@@ -92,7 +98,7 @@ const teamStyles = StyleSheet.create({
     flexWrap: 'wrap',
     justifyContent: 'center',
     alignItems: 'center',
-    margin: '0 auto',
+    margin: '8px',
     width: '95vw',
     overflow: 'hidden',
     padding: '15px'
@@ -104,8 +110,8 @@ const teamStyles = StyleSheet.create({
     width: '16vw',
     height: '24vw',
     padding: '0.5vw',
-    gridTemplateColumns: '20px auto 20px',
-    gridTemplateRows: '50px auto 50px',
+    gridTemplateColumns: '100%',
+    gridTemplateRows: '10% 80% 10%',
     justifyContent: 'center',
     ':hover': {
       ':nth-child(1n) > div': {
@@ -113,18 +119,15 @@ const teamStyles = StyleSheet.create({
         opacity: '1'
       }
     },
-    '@media only screen and (min-width: 300px) and (max-width: 960px)': {
-      width: '600px',
-      height: '900px',
-      padding: '1vw',
-    },
     '@media only screen and (min-width: 680px) and (max-width: 960px)': {
       width: '600px',
       height: '900px',
+      padding: '10px'
     },
     '@media only screen and (min-width: 200px) and (max-width: 680px)': {
       width: '400px',
       height: '600px',
+      padding: '10px'
     },
   },
 
@@ -134,52 +137,59 @@ const teamStyles = StyleSheet.create({
     gridColumnStart: '1',
     gridColumnEnd: '4',
     gridRowStart: '1',
-    gridRowEnd: '4'
+    gridRowEnd: '4',
+    objectFit: 'cover',
+    height: '100%',
   },
 
   overlay: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-    alignItems: 'center',
     placeSelf: 'end center',
-    height: '40%',
-    width: '100%',
-    gridColumnStart: '2',
-    gridColumnEnd: '3',
-    gridRowStart: '2',
-    gridRowEnd: '3',
-    backgroundColor: 'rgba(0, 0, 0, 0.4)',
+    height: '8vw',
+    width: '12vw',
+    marginBottom: '1.5vw',
+    gridColumnStart: '1',
+    gridColumnEnd: '4',
+    gridRowStart: '1',
+    gridRowEnd: '4',
     opacity: '0',
-    '@media only screen and (min-width: 300px) and (max-width: 960px)': {
+    '@media only screen and (min-width: 680px) and (max-width: 960px)': {
+      height: '200px',
+      width: '500px',
+      marginBottom: '50px',
+    },
+    '@media only screen and (min-width: 200px) and (max-width: 680px)': {
+      height: '200px',
+      width: '300px',
+      marginBottom: '50px',
+      backgroundColor: 'rgba(0, 0, 0, 0.4)',
       opacity: '1'
-    }
+    },
   },
 
   overlayTitle: {
     flexBasis: '100%',
-    fontSize: '1.6vh',
+    fontSize: '0.9vw',
     textAlign: 'center',
     color: 'white',
-    '@media only screen and (min-width: 960px) and (max-width: 1160px)': {
-      fontSize: '1.2vh'
+    '@media only screen and (min-width: 680px) and (max-width: 960px)': {
+      fontSize: '20pt',
     },
-    '@media only screen and (min-width: 300px) and (max-width: 960px)': {
-      fontSize: '2.6vh'
-    }
+    '@media only screen and (min-width: 200px) and (max-width: 680px)': {
+      fontSize: '16pt',
+    },
   },
 
   overlayText: {
     flexBasis: '100%',
-    fontSize: '2.6vh',
+    fontSize: '1.4vw',
     textAlign: 'center',
     color: 'white',
-    '@media only screen and (min-width: 960px) and (max-width: 1160px)': {
-      fontSize: '1.8vh'
+    '@media only screen and (min-width: 680px) and (max-width: 960px)': {
+      fontSize: '30pt',
     },
-    '@media only screen and (min-width: 300px) and (max-width: 960px)': {
-      fontSize: '4.2vh'
-    }
+    '@media only screen and (min-width: 200px) and (max-width: 680px)': {
+      fontSize: '24pt',
+    },
   }
 
 })
