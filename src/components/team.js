@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
+import LazyLoad from 'react-lazyload'
 import { StyleSheet, css } from 'aphrodite'
 import { screenSize, titleTransform } from "./styles/styles"
 
@@ -40,7 +41,9 @@ export default () => {
       <div className={css(teamStyles.wrapper)}>
         {data.contentfulTeam.members.map(member =>
           <div className={css(teamStyles.imageContainer)}>
-            <img className={css(teamStyles.image)} src={member.file.url}/>
+            <LazyLoad height={600}>
+              <img className={css(teamStyles.image)} src={member.file.url}/>
+            </LazyLoad>
             <div className={css(teamStyles.overlay)}>
               <p className={css(teamStyles.overlayTitle)}>{member.title.toUpperCase()}</p>
               <p className={css(teamStyles.overlayText)}>{member.description.toUpperCase()}</p>

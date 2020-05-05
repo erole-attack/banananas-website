@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
+import LazyLoad from 'react-lazyload'
 import { StyleSheet, css } from 'aphrodite'
 import { screenSize, titleTransform } from "./styles/styles"
 
@@ -36,7 +37,9 @@ export default () => {
       return(
         newData.map(image =>
           <div className={css(workStyles.container)}>
-            <img className={css(workStyles.image)} src={image.file.url}/>
+            <LazyLoad height={400}>
+              <img className={css(workStyles.image)} src={image.file.url}/>
+            </LazyLoad>
             <div className={css(workStyles.overlay)}>
               <p className={css(workStyles.overlayText)}>{image.title.substr(0, image.title.indexOf('**{'))}</p>
             </div>
@@ -49,7 +52,9 @@ export default () => {
       return(
         data.contentfulWork.workImages.map(image =>
           <div className={css(workStyles.container)}>
-            <img className={css(workStyles.image)} src={image.file.url}/>
+            <LazyLoad height={400}>
+              <img className={css(workStyles.image)} src={image.file.url}/>
+            </LazyLoad>
             <div className={css(workStyles.overlay)}>
               <p className={css(workStyles.overlayText)}>{image.title.substr(0, image.title.indexOf('**{'))}</p>
             </div>

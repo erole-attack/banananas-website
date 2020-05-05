@@ -1,7 +1,8 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { StyleSheet, css } from 'aphrodite'
-import { screenSize } from "./styles/styles"
+import { screenSize } from './styles/styles'
+import LazyLoad from 'react-lazyload'
 import lineOne from'../images/line-01.svg'
 import lineTwo from'../images/line-02.svg'
 import lineThree from'../images/line-03.svg'
@@ -89,10 +90,12 @@ export default () => {
   return(
     <div className={css(conceptStyles.container)}>
       <div className={css(conceptStyles.content)}>
-        <img
-          className={css(conceptStyles.backimg)}
-          src={data.contentfulConcept.banaanAnananas.file.url}>
-        </img>
+        <LazyLoad height={600}>
+          <img
+            className={css(conceptStyles.backimg)}
+            src={data.contentfulConcept.banaanAnananas.file.url}>
+          </img>
+        </LazyLoad>
         <div className={css(conceptStyles.captionContainer)}>
           <div className={css(conceptStyles.speechBubbleContainer)}>
             <div className={css(conceptStyles.speechBubbleTextArea)}>
