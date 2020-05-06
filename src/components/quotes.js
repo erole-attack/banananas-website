@@ -63,7 +63,6 @@ export default () => {
                 {__html: edge.node.quote.childMarkdownRemark.html}
               }
             />
-            {console.log(edge.node.source)}
             <p className={css(quotesStyles.source)}>{edge.node.source !== null ? '- ' + edge.node.source : ""}</p>
           </div>
         )}
