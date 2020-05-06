@@ -54,6 +54,7 @@ export default () => {
         </div>
         <div className={css(contactStyles.columnThree)}>
           <form
+            name='contact'
             className={css(contactStyles.form)}
             onSubmit={handleSubmit(onSubmit)} netlify>
             <input

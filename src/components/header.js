@@ -83,7 +83,7 @@ export default () => {
       gridRowStart: '2',
       gridRowEnd: '3',
       placeSelf: 'center',
-      zIndex: '30',
+      zIndex: '2',
       pointerEvents: 'none',
       userSelect: 'none'
     }
