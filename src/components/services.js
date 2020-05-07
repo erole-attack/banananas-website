@@ -66,7 +66,7 @@ export default () => {
 const servicesStyles = StyleSheet.create({
 
   container: {
-    width: '72vw',
+    width: '78vw',
     height: '40vh',
     background: '#283237',
     borderRadius: '15px',
@@ -98,7 +98,7 @@ const servicesStyles = StyleSheet.create({
 
   grid: {
     display: 'flex',
-    flexWrap: 'wrap',
+    flexWrap: 'nowrap',
     justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
