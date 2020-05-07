@@ -66,7 +66,7 @@ export default () => {
 const servicesStyles = StyleSheet.create({
 
   container: {
-    width: '78vw',
+    width: '90vw',
     height: '40vh',
     background: '#283237',
     borderRadius: '15px',
