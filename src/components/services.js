@@ -54,7 +54,7 @@ export default () => {
                   { __html: trimServiceBlockText(edge.node.description.childMarkdownRemark.html)}
                 }
               />
-              <Link to="/page-2/" type="button" className={css(servicesStyles.button)}>LEES MEER</Link>
+              <Link to="/page-2/" className={css(servicesStyles.button)}>LEES MEER</Link>
             </Link>
           )}
         </div>
@@ -66,7 +66,7 @@ export default () => {
 const servicesStyles = StyleSheet.create({
 
   container: {
-    width: '90vw',
+    width: '72vw',
     height: '40vh',
     background: '#283237',
     borderRadius: '15px',
@@ -103,7 +103,6 @@ const servicesStyles = StyleSheet.create({
     alignItems: 'center',
     width: '100%',
     height: '100%',
-    margin: '0 auto',
     [screenSize.tablet]: {
       flexWrap: 'nowrap',
       width: '90%'
