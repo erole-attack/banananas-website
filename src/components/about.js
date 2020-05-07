@@ -69,7 +69,7 @@ export default () => {
 
     grid: {
       display: 'flex',
-      width: '60%',
+      width: '65%',
       height: '100%',
       gridTemplateColumns: '1',
       gridTemplateRows: '100%',
@@ -90,7 +90,7 @@ export default () => {
     description: {
       fontSize: '1.1vw',
       backgroundColor:'white',
-      padding: '4%',
+      padding: '3%',
       borderRadius: '5px',
       boxShadow: '2.5px 5px 30px #beccd1',
       [screenSize.tablet]: {
