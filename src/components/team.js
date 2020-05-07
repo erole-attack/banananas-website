@@ -30,13 +30,13 @@ export default () => {
   return (
     <div className={css(teamStyles.container)}>
       <div className={css(teamStyles.headContainer)}>
-        <h1 className={css(teamStyles.title)}>
-          {titleTransform(data.contentfulTeam)}
-        </h1>
         <div className={css(teamStyles.description)}
           dangerouslySetInnerHTML={
           { __html: data.contentfulTeam.description.childMarkdownRemark.html}
         }/>
+        <h1 className={css(teamStyles.title)}>
+          {titleTransform(data.contentfulTeam)}
+        </h1>
       </div>
       <div className={css(teamStyles.wrapper)}>
         {data.contentfulTeam.members.map(member =>
@@ -69,12 +69,11 @@ const teamStyles = StyleSheet.create({
   },
 
   headContainer: {
-    paddingTop: '3%',
-    paddingBottom: '2%',
+    paddingTop: '2%',
+    paddingBottom: '0%',
     position: 'relative',
     margin: '0 auto',
     display: 'flex',
-    flexWrap: 'wrap',
     alignItems: 'center',
     justifyContent: 'center',
     width: '70vw',
@@ -92,6 +91,7 @@ const teamStyles = StyleSheet.create({
   },
 
   description: {
+    marginRight: '3%',
     width: '80%',
     fontSize: '1.1vw',
     backgroundColor: 'white',
