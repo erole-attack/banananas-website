@@ -58,7 +58,7 @@ export default () => {
 const teamStyles = StyleSheet.create({
 
   container: {
-    background: 'linear-gradient(0deg, rgba(0,0,0,0) 50%, #e4eef2 50%)',
+    background: '#f2f6f7',
     display: 'flex',
     flexWrap: 'wrap',
     minHeight: '500px',
@@ -98,8 +98,7 @@ const teamStyles = StyleSheet.create({
     fontSize: '1.1vw',
     backgroundColor: 'white',
     padding: '1vw',
-    borderRadius: '5px',
-    boxShadow: '2.5px 5px 30px #beccd1',
+    borderRadius: '5px'
   },
 
   wrapper: {

@@ -89,7 +89,7 @@ const workStyles = StyleSheet.create({
   background: {
     position:'relative',
     zIndex: '1',
-    background: '#e4eef2',
+    background: '#f2f6f7',
   },
 
   heading: {
@@ -132,7 +132,6 @@ const workStyles = StyleSheet.create({
   wrapper: {
     background: 'white',
     borderRadius: '15px',
-
     display: 'flex',
     flexWrap: 'wrap',
     placeContent: 'center',

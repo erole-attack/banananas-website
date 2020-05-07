@@ -78,7 +78,7 @@ const quotesStyles = StyleSheet.create({
 
   background: {
     display: 'flex',
-    background: 'linear-gradient(0deg, #e4eef2 70%, rgba(0,0,0,0) 30%)',
+    background: 'linear-gradient(0deg, #f2f6f7 70%, rgba(0,0,0,0) 30%)',
   },
 
   container: {

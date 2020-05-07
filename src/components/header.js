@@ -43,7 +43,7 @@ export default () => {
 
     background: {
       display: 'flex',
-      background: '#e4eef2'
+      background: '#f2f6f7'
     },
 
     container: {

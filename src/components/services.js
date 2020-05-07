@@ -67,7 +67,7 @@ const servicesStyles = StyleSheet.create({
 
   container: {
     width: '72vw',
-    height: '40vh',
+    height: '45vh',
     background: '#283237',
     borderRadius: '15px',
     boxShadow: '2.5px 5px 30px #888888',
@@ -93,7 +93,7 @@ const servicesStyles = StyleSheet.create({
   },
 
   background: {
-    background: 'linear-gradient(0deg, rgba(0,0,0,0) 60%, #e4eef2 40%)'
+    background: 'linear-gradient(0deg, rgba(0,0,0,0) 60%, #f2f6f7 40%)'
   },
 
   grid: {
@@ -119,7 +119,7 @@ const servicesStyles = StyleSheet.create({
     marginTop: '0%',
     marginLeft: '2%',
     marginRight: '2%',
-    padding: '2%',
+    padding: '4%',
     backgroundColor: '#222A2E',
     display: 'grid',
     borderRadius: '25px',
@@ -134,9 +134,8 @@ const servicesStyles = StyleSheet.create({
     ':hover': {
         cursor: 'pointer',
         background: 'linear-gradient(to right, #136a8a, #267871)',
-        ':nth-child(1n) > a': {
-          fontSize: '1vw',
-          color: 'yellow'
+        ':nth-child(1n) > p': {
+          fontSize: '1vw'
         },
       },
     ':link': {

@@ -29,79 +29,81 @@ export default () => {
   const onSubmit = values => console.log(values)
 
   return(
-    <div className={css(contactStyles.container)}>
-      <h1 className={css(contactStyles.title)}>
-        {titleTransform(data.contentfulContact)}
-      </h1>
-      <div className={css(contactStyles.wrapper)}>
-        <div className={css(contactStyles.columnOne)}/>
-        <div className={css(contactStyles.columnTwo)}>
-          <div className={css(contactStyles.speechBubbleContainer)}>
-            <div className={css(contactStyles.speechBubbleTextArea)}>
-             {data.contentfulContact.speechBubble.toUpperCase()}
+    <div className={css(contactStyles.background)}>
+      <div className={css(contactStyles.container)}>
+        <h1 className={css(contactStyles.title)}>
+          {titleTransform(data.contentfulContact)}
+        </h1>
+        <div className={css(contactStyles.wrapper)}>
+          <div className={css(contactStyles.columnOne)}/>
+          <div className={css(contactStyles.columnTwo)}>
+            <div className={css(contactStyles.speechBubbleContainer)}>
+              <div className={css(contactStyles.speechBubbleTextArea)}>
+               {data.contentfulContact.speechBubble.toUpperCase()}
+              </div>
+              <img
+                className={css(contactStyles.speechBubbleIndicator)}
+                src={speechBubbleIndicator}>
+              </img>
             </div>
-            <img
-              className={css(contactStyles.speechBubbleIndicator)}
-              src={speechBubbleIndicator}>
-            </img>
+            <div
+              className={css(contactStyles.contactInfo)}
+              dangerouslySetInnerHTML={
+                { __html: data.contentfulContact.contactInfo.childMarkdownRemark.html}
+              }
+            />
           </div>
-          <div
-            className={css(contactStyles.contactInfo)}
-            dangerouslySetInnerHTML={
-              { __html: data.contentfulContact.contactInfo.childMarkdownRemark.html}
-            }
-          />
-        </div>
-        <div className={css(contactStyles.columnThree)}>
-          <form
-            name='contact'
-            className={css(contactStyles.form)}
-            onSubmit={handleSubmit(onSubmit)} netlify>
-            <input
-              className={css(contactStyles.inputName)}
-              name="name"
-              placeholder="Naam"
-              ref={register({
-                validate: value => value !== "admin" || "Nice try!"
-              })}
-            />
-            {errors.username && errors.username.message}
+          <div className={css(contactStyles.columnThree)}>
+            <form
+              name='contact'
+              className={css(contactStyles.form)}
+              onSubmit={handleSubmit(onSubmit)} netlify>
+              <input
+                className={css(contactStyles.inputName)}
+                name="name"
+                placeholder="Naam"
+                ref={register({
+                  validate: value => value !== "admin" || "Nice try!"
+                })}
+              />
+              {errors.username && errors.username.message}
 
-            <input
-              className={css(contactStyles.inputEmail)}
-              name="email"
-              placeholder="E-mail"
-              ref={register({
-                required: "Required",
-                pattern: {
-                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                  message: "invalid email address"
-                }
-              })}
-            />
-            {errors.email && errors.email.message}
+              <input
+                className={css(contactStyles.inputEmail)}
+                name="email"
+                placeholder="E-mail"
+                ref={register({
+                  required: "Required",
+                  pattern: {
+                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                    message: "invalid email address"
+                  }
+                })}
+              />
+              {errors.email && errors.email.message}
 
-            <PhoneInput
-              className={css(contactStyles.inputPhone)}
-              placeholder="Telefoonnummer"
-              value={value}
-              onChange={setValue}
-            />
-            {errors.phone && errors.phone.message}
+              <PhoneInput
+                className={css(contactStyles.inputPhone)}
+                placeholder="Telefoonnummer"
+                value={value}
+                onChange={setValue}
+              />
+              {errors.phone && errors.phone.message}
 
-            <textarea
-              className={css(contactStyles.inputMessage)}
-              name="message"
-              placeholder="Bericht"
-              ref={register({
-                required: "Required",
-              })}
-            />
+              <textarea
+                className={css(contactStyles.inputMessage)}
+                name="message"
+                placeholder="Bericht"
+                ref={register({
+                  required: "Required",
+                })}
+              />
 
-            <button
-              className={css(contactStyles.button)}
-              type="submit">VERSTUREN</button>
-          </form>
+              <button
+                className={css(contactStyles.button)}
+                type="submit">VERSTUREN</button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
@@ -109,6 +111,11 @@ export default () => {
 }
 
 const contactStyles = StyleSheet.create({
+
+  background: {
+    display: 'flex',
+    background: '#f2f6f7',
+  },
 
   container: {
     margin: '0 auto',

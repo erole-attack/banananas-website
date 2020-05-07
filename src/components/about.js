@@ -39,7 +39,7 @@ export default () => {
   const aboutStyles = StyleSheet.create({
 
     container: {
-      backgroundColor: '#e4eef2',
+      backgroundColor: '#f2f6f7',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -93,7 +93,6 @@ export default () => {
       backgroundColor:'white',
       padding: '3%',
       borderRadius: '5px',
-      boxShadow: '2.5px 5px 30px #beccd1',
       [screenSize.tablet]: {
         fontSize: '1.6vw',
         lineHeight: '2.4vw'
