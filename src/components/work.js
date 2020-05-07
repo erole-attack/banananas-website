@@ -52,7 +52,7 @@ export default () => {
       return(
         data.contentfulWork.workImages.map(image =>
           <div className={css(workStyles.container)}>
-            <LazyLoad height={400}>
+            <LazyLoad height={200}>
               <img className={css(workStyles.image)} src={image.file.url}/>
             </LazyLoad>
             <div className={css(workStyles.overlay)}>
@@ -65,14 +65,16 @@ export default () => {
   }
 
   return (
-    <div>
-      <h1 className={css(workStyles.title)}>
-        {titleTransform(data.contentfulWork)}
-      </h1>
-      <div id="myBtnContainer" className={css(workStyles.buttons)}>
-        <button className={css(workStyles.button)} onClick={ () => toggleFilter('all') }>{filter === "all" ? <strong>TOON ALLES</strong> : <span>TOON ALLES</span>}</button>
-        <button className={css(workStyles.button)} onClick={ () => toggleFilter(1) }>{filter === 1 ? <strong>KMO'S</strong> : <span>KMO'S</span>}</button>
-        <button className={css(workStyles.button)} onClick={ () => toggleFilter(2) }>{filter === 2 ? <strong>UITGEVERIJEN</strong> : <span>UITGEVERIJEN</span>}</button>
+    <div className={css(workStyles.background)}>
+      <div className={css(workStyles.heading)}>
+        <h1 className={css(workStyles.title)}>
+          {titleTransform(data.contentfulWork)}
+        </h1>
+        <div className={css(workStyles.buttons)}>
+          <button className={css(workStyles.button)} onClick={ () => toggleFilter('all') }>{filter === "all" ? <strong>TOON ALLES</strong> : <span>TOON ALLES</span>}</button>
+          <button className={css(workStyles.button)} onClick={ () => toggleFilter(1) }>{filter === 1 ? <strong>KMO'S</strong> : <span>KMO'S</span>}</button>
+          <button className={css(workStyles.button)} onClick={ () => toggleFilter(2) }>{filter === 2 ? <strong>UITGEVERIJEN</strong> : <span>UITGEVERIJEN</span>}</button>
+        </div>
       </div>
       <div className={css(workStyles.wrapper)}>
         {filterPhotos()}
@@ -84,55 +86,84 @@ export default () => {
 
 const workStyles = StyleSheet.create({
 
+  background: {
+    position:'relative',
+    zIndex: '1',
+    background: '#e4eef2',
+  },
+
+  heading: {
+    paddingTop: '3%',
+    paddingBottom: '2%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+
   title: {
-    margin: '40px 0 30px 0'
+    marginRight: '4vw',
   },
 
   buttons: {
+    padding: '0.5%',
+    borderRadius: '5px',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    margin: '0 0 30px 0'
   },
 
   button: {
     border: 'none',
-    color: '#252526',
-    backgroundColor: 'white',
+    color: 'white',
+    backgroundColor: '#222A2E',
     padding: '10px 32px',
+    borderRadius: '5px',
+    boxShadow: '5px 5px 9px #6d7c85',
     margin: '5px',
     textAlign: 'center',
     textDecoration: 'none',
     display: 'inline-block',
     ':hover': {
         cursor: 'pointer',
-        color: '#5b8e15'
+        background: 'linear-gradient(to right, #136a8a, #267871)'
     },
   },
 
   wrapper: {
+    background: 'white',
+    borderRadius: '15px',
+    boxShadow: '2.5px 5px 30px #adbec9',
     display: 'flex',
     flexWrap: 'wrap',
     placeContent: 'center',
     alignItems: 'center',
     margin: '0 auto',
-    width: '95vw',
+    width: '74vw',
+    paddingTop: '1.2vw',
+    paddingBottom: '1.5vw',
     overflow: 'hidden'
   },
 
   container: {
-    position: 'relative',
     display: 'grid',
-    width: '27.5vw',
-    height: '27.5vw',
-    padding: '0.5vw',
+    justifyItems: 'center',
+    alignItems: 'center',
     gridTemplateColumns: '100%',
-    gridTemplateRows: '10% 80% 10%',
-    placeContent: 'center',
+    gridTemplateRows: '100%',
+    position: 'relative',
+    width: '22vw',
+    height: '14.5vw',
+    overflow: 'hidden',
+    margin: '1vw',
+    borderRadius: '5px',
+    boxShadow: '5px 10px 18px #bcccd6',
     ':hover': {
       ':nth-child(1n) > div': {
-        backgroundColor: 'rgba(0, 0, 0, 0.4)',
+        backgroundColor: '#222A2E',
         opacity: '1'
+      },
+      ':nth-child(1n) > img': {
+        minWidth: '130%'
       }
     },
     [screenSize.tablet]: {
@@ -153,27 +184,23 @@ const workStyles = StyleSheet.create({
   },
 
   image: {
-    placeSelf: 'center',
-    margin: '30px',
+    transition: 'min-width 0.4s ease',
+    minWidth: '100%',
+    opacity: '1',
     gridColumnStart: '1',
-    gridColumnEnd: '4',
+    gridColumnEnd: '2',
     gridRowStart: '1',
-    gridRowEnd: '4',
-    objectFit: 'cover',
-    width: '100%',
+    gridRowEnd: '2'
   },
 
   overlay: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    placeSelf: 'center',
-    height: '25vw',
-    width: '25vw',
+    alignSelf: 'end',
+    textAlign: 'center',
+    width: '100%',
     gridColumnStart: '1',
-    gridColumnEnd: '4',
+    gridColumnEnd: '2',
     gridRowStart: '1',
-    gridRowEnd: '4',
+    gridRowEnd: '2',
     opacity: '0',
     [screenSize.tablet]: {
       width: '42vw',
@@ -190,7 +217,7 @@ const workStyles = StyleSheet.create({
   },
 
   overlayText: {
-    fontSize: '2vw',
+    fontSize: '1vw',
     color: 'white',
     [screenSize.tablet]: {
       fontSize: '20pt',

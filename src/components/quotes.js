@@ -33,40 +33,42 @@ export default () => {
     )
 
   return(
-    <div className={css(quotesStyles.container)}>
-      <img
-        className={css(quotesStyles.backimg)}
-        src={data.contentfulHeader.backgroundImage.file.url}
-      />
-      <Carousel className={css(quotesStyles.wrapper)}
-        autoplay = {true}
-        swiping = {true}
-        dragging = {true}
-        wrapAround = {true}
-        slidesToScroll = {'auto'}
-        defaultControlsConfig={{
-          nextButtonStyle: '',
-          prevButtonStyle: '',
-          pagingDotsStyle: {
-            fill: 'white'
-          }
-        }}
-      >
-        {data.allContentfulQuotes.edges.map(edge =>
-          <div className={css(quotesStyles.quoteContainer)}>
-            <img
-              src={quotationSign}
-              className={css(quotesStyles.sign)}
-            />
-            <div className={css(quotesStyles.quote)}
-              dangerouslySetInnerHTML={
-                {__html: edge.node.quote.childMarkdownRemark.html}
-              }
-            />
-            <p className={css(quotesStyles.source)}>{edge.node.source !== null ? '- ' + edge.node.source : ""}</p>
-          </div>
-        )}
-      </Carousel>
+    <div className={css(quotesStyles.background)}>
+      <div className={css(quotesStyles.container)}>
+        <img
+          className={css(quotesStyles.backimg)}
+          src={data.contentfulHeader.backgroundImage.file.url}
+        />
+        <Carousel className={css(quotesStyles.wrapper)}
+          autoplay = {true}
+          swiping = {true}
+          dragging = {true}
+          wrapAround = {true}
+          slidesToScroll = {'auto'}
+          defaultControlsConfig={{
+            nextButtonStyle: '',
+            prevButtonStyle: '',
+            pagingDotsStyle: {
+              fill: 'white'
+            }
+          }}
+        >
+          {data.allContentfulQuotes.edges.map(edge =>
+            <div className={css(quotesStyles.quoteContainer)}>
+              <img
+                src={quotationSign}
+                className={css(quotesStyles.sign)}
+              />
+              <div className={css(quotesStyles.quote)}
+                dangerouslySetInnerHTML={
+                  {__html: edge.node.quote.childMarkdownRemark.html}
+                }
+              />
+              <p className={css(quotesStyles.source)}>{edge.node.source !== null ? '- ' + edge.node.source : ""}</p>
+            </div>
+          )}
+        </Carousel>
+      </div>
     </div>
   )
 
@@ -74,17 +76,26 @@ export default () => {
 
 const quotesStyles = StyleSheet.create({
 
+  background: {
+    display: 'flex',
+    background: 'linear-gradient(0deg, #e4eef2 70%, rgba(0,0,0,0) 30%)',
+  },
+
   container: {
-    marginTop: '50px',
+    margin: '0 auto',
+    marginTop: '2%',
     display: 'grid',
-    width: '100vw',
-    height: '45vh',
-    minHeight: '450px',
+    width: '90vw',
+    height: '35vh',
+    minHeight: '350px',
     gridTemplateColumns: '1fr 10fr 1fr',
     gridTemplateRows: '1fr 6fr 1fr',
     background: 'black',
     overflow: 'hidden',
     justifyItems: 'center',
+    borderRadius: '25px',
+    boxShadow: '2.5px 5px 30px #888888',
+    zIndex: '500',
     [screenSize.smartphone]: {
       marginTop: '0'
     }
@@ -100,7 +111,8 @@ const quotesStyles = StyleSheet.create({
     objectFit: 'cover',
     opacity: '0.3',
     pointerEvents: 'none',
-    userSelect: 'none'
+    userSelect: 'none',
+    marginBottom: '0'
   },
 
   wrapper: {
@@ -132,7 +144,7 @@ const quotesStyles = StyleSheet.create({
 
   quoteContainer: {
     height: '30vh',
-    minHeight: '250px',
+    minHeight: '300px',
     display: 'flex',
     flexWrap: 'wrap',
   },
@@ -140,7 +152,7 @@ const quotesStyles = StyleSheet.create({
   sign: {
     flexBasis: '100%',
     position: 'relative',
-    left: '-38%',
+    left: '-39%',
     top: '20%',
     color: 'white',
     maxHeight: '3vw',
@@ -173,7 +185,7 @@ const quotesStyles = StyleSheet.create({
     flexBasis: '100%',
     position: 'relative',
     left: '20%',
-    top: '-15%',
+    top: '-40%',
     color: 'white',
     alignSelf: 'center',
     fontSize: '1.1vw',

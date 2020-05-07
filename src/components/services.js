@@ -37,25 +37,27 @@ export default () => {
   }
 
   return(
-    <div className={css(servicesStyles.container)}>
-      <div className={css(servicesStyles.grid)}>
-        {data.allContentfulServices.edges.map(edge =>
-          <div className={css(servicesStyles.serviceBlock)}>
-            <img src={edge.node.servicesIcon.file.url}
-              className={css(servicesStyles.icons)}
-            />
-            <h2 className={css(servicesStyles.title)}>
-              {edge.node.title.toUpperCase()}
-            </h2>
-            <div
-              className={css(servicesStyles.description)}
-              dangerouslySetInnerHTML={
-                { __html: trimServiceBlockText(edge.node.description.childMarkdownRemark.html)}
-              }
-            />
-            <Link to="/page-2/" type="button" className={css(servicesStyles.button)}>LEES MEER</Link>
-          </div>
-        )}
+    <div className={css(servicesStyles.background)}>
+      <div className={css(servicesStyles.container)}>
+        <div className={css(servicesStyles.grid)}>
+          {data.allContentfulServices.edges.map(edge =>
+            <Link to="/page-2/" className={css(servicesStyles.serviceBlock)}>
+              <img src={edge.node.servicesIcon.file.url}
+                className={css(servicesStyles.icons)}
+              />
+              <h2 className={css(servicesStyles.title)}>
+                {edge.node.title.toUpperCase()}
+              </h2>
+              <div
+                className={css(servicesStyles.description)}
+                dangerouslySetInnerHTML={
+                  { __html: trimServiceBlockText(edge.node.description.childMarkdownRemark.html)}
+                }
+              />
+              <Link to="/page-2/" type="button" className={css(servicesStyles.button)}>LEES MEER</Link>
+            </Link>
+          )}
+        </div>
       </div>
     </div>
   )
@@ -64,17 +66,18 @@ export default () => {
 const servicesStyles = StyleSheet.create({
 
   container: {
-    width: '100vw',
-    height: '50vh',
-    background: '#101213',
+    width: '72vw',
+    height: '40vh',
+    background: '#283237',
+    borderRadius: '15px',
+    boxShadow: '2.5px 5px 30px #888888',
     overflow: 'hidden',
     color: 'white',
     margin: '0 auto',
-    minHeight: '400px',
+    minHeight: '320px',
     [screenSize.tablet]: {
-      height: '160vh',
-      width: '70vw',
-      minHeight: '1200px'
+      height: '10vh',
+      width: '85vw',
     },
     [screenSize.smartphoneLandscape]: {
       height: '160vh',
@@ -89,6 +92,10 @@ const servicesStyles = StyleSheet.create({
     }
   },
 
+  background: {
+    background: 'linear-gradient(0deg, rgba(0,0,0,0) 60%, #e4eef2 40%)'
+  },
+
   grid: {
     display: 'flex',
     flexWrap: 'wrap',
@@ -98,7 +105,8 @@ const servicesStyles = StyleSheet.create({
     height: '100%',
     margin: '0 auto',
     [screenSize.tablet]: {
-      width: '60%'
+      flexWrap: 'nowrap',
+      width: '90%'
     },
     [screenSize.smartphoneLandscape]: {
       width: '90%'
@@ -109,17 +117,42 @@ const servicesStyles = StyleSheet.create({
   },
 
   serviceBlock: {
+    marginTop: '0%',
+    marginLeft: '2%',
+    marginRight: '2%',
+    padding: '2%',
+    backgroundColor: '#222A2E',
     display: 'grid',
-    width: '20vw',
-    height: '40vh',
-    minHeight: '280px',
+    borderRadius: '25px',
+    width: '14vw',
+    height: '27vh',
+    minHeight: '190px',
     gridTemplateColumns: '1fr',
-    gridTemplateRows: '30% 25% 30% 15%',
-    marginLeft: '35px',
-    marginRight: '35px',
+    gridTemplateRows: '25% 15% 50% 10%',
+    boxShadow: '5px 10px 18px #101213',
+    outline: 'none',
+    textDecoration: 'none',
+    ':hover': {
+        cursor: 'pointer',
+        background: 'linear-gradient(to right, #136a8a, #267871)',
+        ':nth-child(1n) > a': {
+          fontSize: '1vw',
+          color: 'yellow'
+        },
+      },
+    ':link': {
+      textDecoration: 'none',
+      color: 'white'
+    },
     [screenSize.tablet]: {
-      width: '30vw',
-      minHeight: '340px',
+      marginLeft: '3%',
+      marginRight: '3%',
+      padding: '20px',
+      borderRadius: '25px',
+      gridTemplateRows: '40% 12% 39% 9%',
+      height: '26vh',
+      minHeight: '200px',
+      outline: 'none'
     },
     [screenSize.smartphoneLandscape]: {
       width: '50vw'
@@ -132,14 +165,14 @@ const servicesStyles = StyleSheet.create({
   },
 
   icons: {
-    height: '7.5vw',
+    height: '90%',
     placeSelf: 'center',
     gridRowStart: '1',
     gridRowEnd: '2',
     pointerEvents: 'none',
     userSelect: 'none',
     [screenSize.tablet]: {
-      height: '90px'
+      height: '90%'
     },
     [screenSize.smartphoneLandscape]: {
       height: '80px'
@@ -150,22 +183,43 @@ const servicesStyles = StyleSheet.create({
   },
 
   title: {
+    fontSize: '1.4vw',
+    fontWeight: '300',
     placeSelf: 'center',
     gridRowStart: '2',
-    gridRowEnd: '3'
+    gridRowEnd: '3',
+    [screenSize.tablet]: {
+      fontSize: '1.4vw',
+    },
+    [screenSize.smartphoneLandscape]: {
+    },
+    [screenSize.smartphone]: {
+    }
   },
 
   description: {
+    fontSize: '1vw',
+    lineHeight: '1.2vw',
     gridRowStart: '3',
     gridRowEnd: '4',
-    textAlign: 'center'
+    textAlign: 'center',
+    [screenSize.tablet]: {
+      fontSize: '1.2vw',
+    },
+    [screenSize.smartphoneLandscape]: {
+
+    },
+    [screenSize.smartphone]: {
+
+    }
   },
 
   button: {
     placeSelf: 'center',
     gridRowStart: '4',
     gridRowEnd: '5',
-    backgroundColor: '#252526',
+    fontSize: '0.8vw',
+    fontWeight: '800',
     border: 'none',
     color: 'white',
     padding: '10px 32px',
@@ -173,13 +227,14 @@ const servicesStyles = StyleSheet.create({
     textDecoration: 'none',
     display: 'inline-block',
     ':hover': {
-        cursor: 'pointer',
-        backgroundColor: '#fae73c',
-        color: '#252526'
+      cursor: 'pointer',
     },
-    ':active': {
-      backgroundColor: '#5b8e15',
-      color: 'white'
+    [screenSize.tablet]: {
+      fontSize: '1vw'
+    },
+    [screenSize.smartphoneLandscape]: {
+    },
+    [screenSize.smartphone]: {
     }
   }
 

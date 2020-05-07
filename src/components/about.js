@@ -21,8 +21,10 @@ export default () => {
 
   return(
     <div className={css(aboutStyles.container)}>
-      <div className={css(aboutStyles.grid)}>
+      <span className={css(aboutStyles.title)}>
         {titleTransform(data.contentfulAbout)}
+      </span>
+      <div className={css(aboutStyles.grid)}>
         <div
           className={css(aboutStyles.description)}
           dangerouslySetInnerHTML={
@@ -37,13 +39,14 @@ export default () => {
   const aboutStyles = StyleSheet.create({
 
     container: {
+      backgroundColor: '#e4eef2',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
       width: '100vw',
-      height: '35vh',
+      height: '45vh',
       overflow: 'hidden',
-      minHeight: '300px',
+      minHeight: '280px',
       [screenSize.tablet]: {
         height: '40vh'
       },
@@ -58,22 +61,49 @@ export default () => {
       }
     },
 
+    title: {
+      [screenSize.tablet]: {
+        display: 'none'
+      },
+    },
+
     grid: {
-      display: 'grid',
+      display: 'flex',
       width: '60%',
-      height: '70%',
+      height: '100%',
       gridTemplateColumns: '1',
-      gridTemplateRows: '40% 60%',
-      justifyItems: 'center',
+      gridTemplateRows: '100%',
+      justifyContent: 'center',
+      alignItems: 'center',
       textAlign: 'center',
-      [screenSize.smartphone]: {
+      [screenSize.tablet]: {
         width: '80%',
+      },
+      [screenSize.smartphoneLandscape]: {
+        width: '90%',
+      },
+      [screenSize.smartphone]: {
+        width: '95%',
       }
     },
 
     description: {
+      backgroundColor:'white',
+      padding: '4%',
+      borderRadius: '5px',
+      boxShadow: '2.5px 5px 30px #beccd1',
+      [screenSize.tablet]: {
+        fontSize: '1.6vw',
+        lineHeight: '2.4vw'
+      },
+      [screenSize.smartphoneLandscape]: {
+        fontSize: '2.1vw',
+        lineHeight: '3vw'
+      },
       [screenSize.smartphone]: {
-        color: '#E1E1E1'
+        fontSize: '2.2vw',
+        lineHeight: '3.8vw',
+        color: '#E1E1E1',
       }
     }
 

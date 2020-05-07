@@ -32,7 +32,7 @@ const titleStyles = StyleSheet.create({
   },
 
   words: {
-    fontSize: '2.5vw',
+    fontSize: '2.2vw',
     padding: '0.5vw',
     [screenSize.tablet]: {
       fontSize: '24pt'

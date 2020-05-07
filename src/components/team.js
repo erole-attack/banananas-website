@@ -57,11 +57,8 @@ export default () => {
 
 const teamStyles = StyleSheet.create({
 
-  title: {
-    margin: '20px 0 30px 0'
-  },
-
   container: {
+    background: 'linear-gradient(0deg, rgba(0,0,0,0) 40%, #e4eef2 60%)',
     display: 'flex',
     flexWrap: 'wrap',
     minHeight: '500px',
@@ -72,16 +69,18 @@ const teamStyles = StyleSheet.create({
   },
 
   headContainer: {
+    paddingTop: '3%',
+    paddingBottom: '2%',
     position: 'relative',
     margin: '0 auto',
     display: 'flex',
     flexWrap: 'wrap',
     alignItems: 'center',
     justifyContent: 'center',
-    width: '60vw',
+    width: '70vw',
     height: '25vh',
     overflow: 'hidden',
-    minHeight: '200px',
+    minHeight: '18vw',
     textAlign: 'center',
     '@media only screen and (min-width: 200px) and (max-width: 680px)': {
       width: '80vw',
@@ -93,7 +92,12 @@ const teamStyles = StyleSheet.create({
   },
 
   description: {
-    height: '60%',
+    width: '80%',
+    fontSize: '1.1vw',
+    backgroundColor: 'white',
+    padding: '1vw',
+    borderRadius: '5px',
+    boxShadow: '2.5px 5px 30px #beccd1',
   },
 
   wrapper: {
@@ -101,24 +105,30 @@ const teamStyles = StyleSheet.create({
     flexWrap: 'wrap',
     justifyContent: 'center',
     alignItems: 'center',
-    margin: '8px',
     width: '95vw',
     overflow: 'hidden',
-    padding: '15px'
   },
 
   imageContainer: {
+    paddingTop: '2.5%',
+    paddingBottom: '2.5%',
     position: 'relative',
+    marginRight: '0.5%',
+    marginLeft: '0.5%',
     display: 'grid',
-    width: '16vw',
-    height: '24vw',
-    padding: '0.5vw',
+    width: '14vw',
+    height: '21vw',
     gridTemplateColumns: '100%',
     gridTemplateRows: '10% 80% 10%',
     justifyContent: 'center',
+    borderRadius: '10px',
     ':hover': {
       ':nth-child(1n) > div': {
-        backgroundColor: 'rgba(0, 0, 0, 0.4)',
+        borderRadius: '5px',
+        background: 'linear-gradient(to right, #136a8a, #267871)',
+        opacity: '0.6'
+      },
+      ':nth-child(1n) > div > p': {
         opacity: '1'
       }
     },
@@ -135,6 +145,8 @@ const teamStyles = StyleSheet.create({
   },
 
   image: {
+    boxShadow: '2.5px 5px 30px #beccd1',
+    borderRadius: '10px',
     placeSelf: 'center',
     margin: '30px',
     gridColumnStart: '1',

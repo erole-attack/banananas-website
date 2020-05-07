@@ -24,30 +24,41 @@ export default () => {
   )
 
   return(
-    <header className={css(headerStyles.container)}>
-      <img
-        className={css(headerStyles.backimg)}
-        src={data.contentfulHeader.backgroundImage.file.url}>
-      </img>
-      <img
-        className={css(headerStyles.topimg)}
-        src={data.contentfulHeader.foregroundImage.file.url}>
-      </img>
-    </header>
+    <div className={css(headerStyles.background)}>
+      <div className={css(headerStyles.container)}>
+        <img
+          className={css(headerStyles.backimg)}
+          src={data.contentfulHeader.backgroundImage.file.url}>
+        </img>
+        <img
+          className={css(headerStyles.topimg)}
+          src={data.contentfulHeader.foregroundImage.file.url}>
+        </img>
+      </div>
+    </div>
   )
 }
 
   const headerStyles = StyleSheet.create({
 
+    background: {
+      display: 'flex',
+      background: '#e4eef2'
+    },
+
     container: {
+      margin: '0 auto',
+      marginTop: '2vw',
       display: 'grid',
-      width: '100vw',
-      height: '65vh',
+      width: '95vw',
+      height: '45vh',
       gridTemplateColumns: '1fr 10fr 1fr',
       gridTemplateRows: '1fr 6fr 1fr',
       background: 'black',
       overflow: 'hidden',
       minHeight: '400px',
+      borderRadius: '10px',
+      boxShadow: '2.5px 5px 30px #888888',
       [screenSize.tablet] : {
         height: '60vh'
       },
@@ -76,8 +87,9 @@ export default () => {
     },
 
     topimg: {
-      height: '40vh',
-      minHeight: '300px',
+      paddingTop: '4%',
+      height: '30vh',
+      minHeight: '200px',
       gridColumnStart: '2',
       gridColumnEnd: '3',
       gridRowStart: '2',
@@ -85,7 +97,7 @@ export default () => {
       placeSelf: 'center',
       zIndex: '2',
       pointerEvents: 'none',
-      userSelect: 'none'
+      userSelect: 'none',
     }
 
   })

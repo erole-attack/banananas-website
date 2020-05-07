@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { StyleSheet, css } from 'aphrodite'
-import { screenSize } from './styles/styles'
+import { screenSize, titleTransform } from './styles/styles'
 import LazyLoad from 'react-lazyload'
 import lineOne from'../images/line-01.svg'
 import lineTwo from'../images/line-02.svg'
@@ -14,6 +14,7 @@ export default () => {
     graphql `
       query getBananaDats {
         contentfulConcept {
+          title
           speechBubble
           banaanAnananas {
             file {
@@ -88,55 +89,61 @@ export default () => {
   ]
 
   return(
-    <div className={css(conceptStyles.container)}>
-      <div className={css(conceptStyles.content)}>
-        <LazyLoad height={600}>
-          <img
-            className={css(conceptStyles.backimg)}
-            src={data.contentfulConcept.banaanAnananas.file.url}>
-          </img>
-        </LazyLoad>
-        <div className={css(conceptStyles.captionContainer)}>
-          <div className={css(conceptStyles.speechBubbleContainer)}>
-            <div className={css(conceptStyles.speechBubbleTextArea)}>
-             {data.contentfulConcept.speechBubble.toUpperCase()}
-            </div>
+    <>
+      <div className={css(conceptStyles.title)}>
+        {titleTransform(data.contentfulConcept)}
+      </div>
+      <div className={css(conceptStyles.container)}>
+        <div className={css(conceptStyles.content)}>
+          <LazyLoad height={600}>
             <img
-              className={css(conceptStyles.speechBubbleIndicator)}
-              src={speechBubbleIndicator}>
+              className={css(conceptStyles.backimg)}
+              src={data.contentfulConcept.banaanAnananas.file.url}>
             </img>
-          </div>
-          {captions.map(caption =>
-            <div className={css(conceptStyles.captionBlock)}>
-              <img
-                className={css(caption.lineStyle)}
-                src={caption.src}>
-              </img>
-              <div className={css(caption.textStyle)}>
-                <h3>{caption.title}</h3>
-                <div dangerouslySetInnerHTML={
-                  { __html: caption.html}
-                }/>
+          </LazyLoad>
+          <div className={css(conceptStyles.captionContainer)}>
+            <div className={css(conceptStyles.speechBubbleContainer)}>
+              <div className={css(conceptStyles.speechBubbleTextArea)}>
+               {data.contentfulConcept.speechBubble.toUpperCase()}
               </div>
+              <img
+                className={css(conceptStyles.speechBubbleIndicator)}
+                src={speechBubbleIndicator}>
+              </img>
             </div>
-          )}
+            {captions.map(caption =>
+              <div className={css(conceptStyles.captionBlock)}>
+                <img
+                  className={css(caption.lineStyle)}
+                  src={caption.src}>
+                </img>
+                <div className={css(caption.textStyle)}>
+                  <h3>{caption.title}</h3>
+                  <div dangerouslySetInnerHTML={
+                    { __html: caption.html}
+                  }/>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 
   const conceptStyles = StyleSheet.create({
 
     container: {
-      marginTop: '50px',
-      marginBottom: '50px',
+      marginTop: '1%',
+      marginBottom: '1%',
+      margin: '0 auto',
       display: 'flex',
-      width: '100vw',
+      width: '85vw',
       height: '100vh',
       alignItems: 'center',
       justifyContent: 'center',
-      minHeight: '650px',
+      minHeight: '700px',
       overflow: 'hidden',
       [screenSize.tablet]: {
         height: '80vh',
@@ -149,6 +156,10 @@ export default () => {
       [screenSize.smartphone]: {
         display: 'none'
       }
+    },
+
+    title: {
+      marginTop: '3%'
     },
 
     content: {
@@ -206,7 +217,8 @@ export default () => {
     },
 
     captionBlock: {
-      fontSize: '0.9vw'
+      fontSize: '1vw',
+      lineHeight: '1.2vw'
     },
 
     lineOne: {

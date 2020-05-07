@@ -4,7 +4,8 @@ html {
   font-family: 'Montserrat', sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  font-size: 1vw;
+  font-size: 1.2vw;
+  line-height: 1.8vw;
   font-weight: 300;
   color: #303133;
   overflow-x: hidden;
@@ -25,6 +26,9 @@ img {
   padding-top: 0;
   margin-bottom: 1.45rem;
 }
+a {
+  color: inherit;
+}
 span {
   font-weight: 200;
 }
@@ -35,6 +39,7 @@ h2 {
   font-weight: 400;
 }
 h3 {
+  font-size: 0.9vw;
   line-height: 0px;
 }
 button {
@@ -44,6 +49,7 @@ button {
 input {
   font-family: 'Montserrat', sans-serif;
   border: none;
+  border-radius: 5px;
 }
 textarea {
   font-family: 'Montserrat', sans-serif;

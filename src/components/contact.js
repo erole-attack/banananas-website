@@ -111,13 +111,17 @@ export default () => {
 const contactStyles = StyleSheet.create({
 
   container: {
+    margin: '0 auto',
+    marginBottom: '2%',
+    padding: '2%',
     display: 'grid',
     gridTemplateColumns: '5% auto 5%',
     gridTemplateRows: '18% auto',
-    width: '100vw',
+    width: '90vw',
     height: '90vh',
     minHeight: '700px',
-    background: '#f7f7f7',
+    borderRadius: '35px',
+    background: 'linear-gradient(to right, #a8ff78, #78ffd6)',
     overflow: 'hidden',
     [screenSize.tablet]: {
       minHeight: '700px',
@@ -278,6 +282,7 @@ const contactStyles = StyleSheet.create({
   },
 
   inputName: {
+    borderRadius: '5px',
     flexBasis: '100%',
     border: 'none',
     height: '8%',
@@ -298,6 +303,7 @@ const contactStyles = StyleSheet.create({
   },
 
   inputEmail: {
+    borderRadius: '5px',
     flexBasis: '100%',
     border: 'none',
     height: '8%',
@@ -340,6 +346,7 @@ const contactStyles = StyleSheet.create({
   },
 
   inputMessage: {
+    borderRadius: '5px',
     flexBasis: '100%',
     border: 'none',
     height: '50%',
@@ -361,7 +368,9 @@ const contactStyles = StyleSheet.create({
   },
 
   button: {
-    backgroundColor: '#252526',
+    borderRadius: '5px',
+    boxShadow: '5px 5px 9px #50b36c',
+    backgroundColor: '#222A2E',
     border: 'none',
     color: 'white',
     padding: '5px 20px',
@@ -370,8 +379,7 @@ const contactStyles = StyleSheet.create({
     display: 'inline-block',
     ':hover': {
         cursor: 'pointer',
-        backgroundColor: '#fae73c',
-        color: '#252526'
+        background: 'linear-gradient(to right, #136a8a, #267871)',
     },
     ':active': {
       backgroundColor: '#5b8e15',
