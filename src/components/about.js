@@ -68,8 +68,9 @@ export default () => {
     },
 
     grid: {
+      marginLeft: '3%',
       display: 'flex',
-      width: '65%',
+      width: '55%',
       height: '100%',
       gridTemplateColumns: '1',
       gridTemplateRows: '100%',
