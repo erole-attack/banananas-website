@@ -88,6 +88,7 @@ export default () => {
     },
 
     description: {
+      fontSize: '1.1vw',
       backgroundColor:'white',
       padding: '4%',
       borderRadius: '5px',
