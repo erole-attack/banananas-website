@@ -54,7 +54,7 @@ export default () => {
                   { __html: trimServiceBlockText(edge.node.description.childMarkdownRemark.html)}
                 }
               />
-              <Link to="/page-2/" className={css(servicesStyles.button)}>LEES MEER</Link>
+              <p className={css(servicesStyles.button)}>LEES MEER</p>
             </Link>
           )}
         </div>
