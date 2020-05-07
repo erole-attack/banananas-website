@@ -58,7 +58,7 @@ export default () => {
 const teamStyles = StyleSheet.create({
 
   container: {
-    background: 'linear-gradient(0deg, rgba(0,0,0,0) 40%, #e4eef2 60%)',
+    background: 'linear-gradient(0deg, rgba(0,0,0,0) 50%, #e4eef2 50%)',
     display: 'flex',
     flexWrap: 'wrap',
     minHeight: '500px',
@@ -71,6 +71,8 @@ const teamStyles = StyleSheet.create({
   headContainer: {
     paddingTop: '2%',
     paddingBottom: '0%',
+    paddingLeft: '2%',
+    paddingRight: '2%',
     position: 'relative',
     margin: '0 auto',
     display: 'flex',

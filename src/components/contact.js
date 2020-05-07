@@ -118,7 +118,7 @@ const contactStyles = StyleSheet.create({
     gridTemplateColumns: '5% auto 5%',
     gridTemplateRows: '18% auto',
     width: '90vw',
-    height: '85vh',
+    height: '95vh',
     minHeight: '700px',
     borderRadius: '35px',
     background: 'linear-gradient(to right, #a8ff78, #78ffd6)',
