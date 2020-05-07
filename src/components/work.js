@@ -132,7 +132,7 @@ const workStyles = StyleSheet.create({
   wrapper: {
     background: 'white',
     borderRadius: '15px',
-    boxShadow: '2.5px 5px 30px #adbec9',
+
     display: 'flex',
     flexWrap: 'wrap',
     placeContent: 'center',
