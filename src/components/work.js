@@ -118,7 +118,7 @@ const workStyles = StyleSheet.create({
     backgroundColor: '#222A2E',
     padding: '10px 32px',
     borderRadius: '5px',
-    boxShadow: '5px 5px 9px #6d7c85',
+    boxShadow: '5px 5px 9px #bdc7c9',
     margin: '5px',
     textAlign: 'center',
     textDecoration: 'none',

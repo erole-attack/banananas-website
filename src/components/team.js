@@ -126,9 +126,9 @@ const teamStyles = StyleSheet.create({
     borderRadius: '10px',
     ':hover': {
       ':nth-child(1n) > div': {
-        borderRadius: '5px',
-        background: 'linear-gradient(to right, #136a8a, #267871)',
-        opacity: '0.6'
+        borderRadius: '10px',
+        background: '#222A2E',
+        opacity: '1'
       },
       ':nth-child(1n) > div > p': {
         opacity: '1'
@@ -147,7 +147,7 @@ const teamStyles = StyleSheet.create({
   },
 
   image: {
-    boxShadow: '2.5px 5px 30px #beccd1',
+    boxShadow: '2.5px 2px 5px #bdc7c9',
     borderRadius: '10px',
     placeSelf: 'center',
     margin: '30px',
@@ -184,7 +184,6 @@ const teamStyles = StyleSheet.create({
   },
 
   overlayTitle: {
-    flexBasis: '100%',
     fontSize: '0.9vw',
     textAlign: 'center',
     color: 'white',
@@ -197,7 +196,6 @@ const teamStyles = StyleSheet.create({
   },
 
   overlayText: {
-    flexBasis: '100%',
     fontSize: '1.4vw',
     textAlign: 'center',
     color: 'white',
