@@ -68,7 +68,7 @@ export default () => {
     },
 
     grid: {
-      marginLeft: '3%',
+      marginLeft: '2vw',
       display: 'flex',
       width: '55%',
       height: '100%',

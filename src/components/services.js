@@ -124,8 +124,6 @@ const servicesStyles = StyleSheet.create({
     display: 'grid',
     borderRadius: '25px',
     width: '14vw',
-    minWidth: '160px',
-    maxWidth: '200px',
     height: '27vh',
     minHeight: '190px',
     gridTemplateColumns: '1fr',
