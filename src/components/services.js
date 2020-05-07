@@ -165,7 +165,7 @@ const servicesStyles = StyleSheet.create({
   },
 
   icons: {
-    height: '90%',
+    height: '4vw',
     placeSelf: 'center',
     gridRowStart: '1',
     gridRowEnd: '2',
