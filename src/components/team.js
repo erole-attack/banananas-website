@@ -101,6 +101,7 @@ const teamStyles = StyleSheet.create({
   },
 
   wrapper: {
+    margin: '0 auto',
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'center',
