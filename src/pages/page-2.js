@@ -1,16 +1,49 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from 'react'
+import { Link } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
+import Layout from '../components/layout'
+import SEO from '../components/seo'
+import Header from '../components/header'
+import Work from '../components/work'
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+export default () => {
+  const data = useStaticQuery(
+    graphql `
+      query getKMOData {
+        allContentfulServices(limit: 3) {
+          edges {
+            node {
+              title
+              subtitle
+              description {
+                childMarkdownRemark {
+                  html
+                }
+              }
+              servicesIcon {
+                file {
+                  url
+                }
+              }
+            }
+          }
+        }
+      }
+    `
+  )
 
-const SecondPage = () => (
-  <Layout>
-    <SEO title="Page two" />
-    <h1>Hi from the second page</h1>
-    <p>Welcome to page 2</p>
-    <Link to="/">Go back to the homepage</Link>
-  </Layout>
-)
+  const KMO = data.allContentfulServices.edges[0]
 
-export default SecondPage
+  return(
+    <Layout>
+      <SEO title="Page two" />
+      <Header mainPage={() => false}/>
+      <div
+        dangerouslySetInnerHTML={
+          { __html: KMO.node.description.childMarkdownRemark.html}
+        }
+      />
+      <Work/>
+    </Layout>
+  )
+}

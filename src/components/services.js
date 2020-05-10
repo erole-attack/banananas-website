@@ -37,7 +37,7 @@ export default () => {
   }
 
   return(
-    <div className={css(servicesStyles.background)}>
+    <div className={css(servicesStyles.background)} id='diensten'>
       <div className={css(servicesStyles.container)}>
         <div className={css(servicesStyles.grid)}>
           {data.allContentfulServices.edges.map(edge =>
@@ -66,8 +66,8 @@ export default () => {
 const servicesStyles = StyleSheet.create({
 
   container: {
-    width: '72vw',
-    height: '50vh',
+    width: '68vw',
+    height: '54vh',
     background: '#283237',
     borderRadius: '15px',
     boxShadow: '2.5px 5px 30px #888888',
@@ -134,7 +134,7 @@ const servicesStyles = StyleSheet.create({
         cursor: 'pointer',
         background: 'linear-gradient(to right, #136a8a, #267871)',
         ':nth-child(1n) > p': {
-          fontSize: '1vw'
+          fontSize: '1.2vw'
         },
       },
     ':link': {
@@ -197,6 +197,7 @@ const servicesStyles = StyleSheet.create({
   },
 
   description: {
+    color: '#d1dbde',
     fontSize: '1vw',
     lineHeight: '1.2vw',
     gridRowStart: '3',
@@ -214,6 +215,7 @@ const servicesStyles = StyleSheet.create({
   },
 
   button: {
+    transition: 'font-size 0.4s ease',
     placeSelf: 'center',
     gridRowStart: '4',
     gridRowEnd: '5',

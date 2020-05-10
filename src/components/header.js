@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { StyleSheet, css } from 'aphrodite'
 import { screenSize } from "./styles/styles"
+import navicon from '../images/Banananas_navbar_logo.png'
 
 export default () => {
   const data = useStaticQuery (
@@ -23,9 +24,22 @@ export default () => {
     `
   )
 
+  const [mainPage, setMainPage] = useState(null);
+
+  function isMainpage(bool){
+    setMainPage(bool)
+  }
+  console.log(mainPage)
+
   return(
     <div className={css(headerStyles.background)}>
       <div className={css(headerStyles.container)}>
+        <div className={css(headerStyles.navicon)}>
+          <img
+            className={css(headerStyles.logo)}
+            src={navicon}>
+          </img>
+        </div>
         <img
           className={css(headerStyles.backimg)}
           src={data.contentfulHeader.backgroundImage.file.url}>
@@ -69,6 +83,29 @@ export default () => {
         height: '65vh',
         minHeight: '300px'
       }
+    },
+
+    navicon: {
+      opacity: '0.6',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      zIndex: '50',
+      position: 'absolute',
+      backgroundColor: '#222a2e',
+      left: '4vw',
+      top: '4vw',
+      width: '15vw',
+      borderRadius: '15px',
+      ':hover': {
+        opacity: '1',
+        cursor: 'pointer'
+      }
+    },
+
+    logo: {
+      padding: '1vw',
+      marginBottom: '0'
     },
 
     backimg: {

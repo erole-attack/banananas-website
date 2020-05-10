@@ -65,7 +65,7 @@ export default () => {
   }
 
   return (
-    <div className={css(workStyles.background)}>
+    <div className={css(workStyles.background)} id='werk'>
       <div className={css(workStyles.heading)}>
         <h1 className={css(workStyles.title)}>
           {titleTransform(data.contentfulWork)}
@@ -82,7 +82,6 @@ export default () => {
     </div>
   )
 }
-
 
 const workStyles = StyleSheet.create({
 

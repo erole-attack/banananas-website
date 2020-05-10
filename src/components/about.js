@@ -44,9 +44,10 @@ export default () => {
       alignItems: 'center',
       justifyContent: 'center',
       width: '100vw',
-      height: '45vh',
+      height: '38vh',
       overflow: 'hidden',
       minHeight: '280px',
+      paddingBottom: '5vw',
       [screenSize.tablet]: {
         height: '40vh'
       },

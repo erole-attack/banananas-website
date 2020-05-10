@@ -6,6 +6,7 @@ import PhoneInput from 'react-phone-number-input'
 import 'react-phone-number-input/style.css'
 import { screenSize, titleTransform } from "./styles/styles"
 import speechBubbleIndicator from '../images/speechbubble-indicator.svg'
+import monkey from '../images/monkey.png'
 
 export default () => {
   const data = useStaticQuery(
@@ -29,13 +30,18 @@ export default () => {
   const onSubmit = values => console.log(values)
 
   return(
-    <div className={css(contactStyles.background)}>
+    <div className={css(contactStyles.background)} id='contact'>
       <div className={css(contactStyles.container)}>
         <h1 className={css(contactStyles.title)}>
           {titleTransform(data.contentfulContact)}
         </h1>
         <div className={css(contactStyles.wrapper)}>
-          <div className={css(contactStyles.columnOne)}/>
+          <div className={css(contactStyles.columnOne)}>
+            <img
+              className={css(contactStyles.monkey)}
+              src={monkey}>
+            </img>
+          </div>
           <div className={css(contactStyles.columnTwo)}>
             <div className={css(contactStyles.speechBubbleContainer)}>
               <div className={css(contactStyles.speechBubbleTextArea)}>
@@ -119,16 +125,15 @@ const contactStyles = StyleSheet.create({
 
   container: {
     margin: '0 auto',
-    marginBottom: '2%',
-    padding: '2%',
+    padding: '2% 2% 0% 2%',
     display: 'grid',
     gridTemplateColumns: '5% auto 5%',
     gridTemplateRows: '18% auto',
     width: '90vw',
     height: '95vh',
     minHeight: '700px',
-    borderRadius: '35px',
-    background: 'linear-gradient(to right, #a8ff78, #78ffd6)',
+    borderRadius: '35px 35px 0 0',
+    background: 'linear-gradient(to right, #b08b28, #f2c94c)',
     overflow: 'hidden',
     [screenSize.tablet]: {
       minHeight: '700px',
@@ -376,7 +381,7 @@ const contactStyles = StyleSheet.create({
 
   button: {
     borderRadius: '5px',
-    boxShadow: '5px 5px 9px #50b36c',
+    boxShadow: '5px 5px 9px #997a20',
     backgroundColor: '#222A2E',
     border: 'none',
     color: 'white',
@@ -395,6 +400,12 @@ const contactStyles = StyleSheet.create({
     [screenSize.smartphone]: {
 
     }
+  },
+
+  monkey: {
+    alignSelf : 'end',
+    justifySelf: 'center',
+    marginBottom: '0'
   }
 
 })

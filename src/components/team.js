@@ -28,7 +28,7 @@ export default () => {
   )
 
   return (
-    <div className={css(teamStyles.container)}>
+    <div className={css(teamStyles.container)} id='team'>
       <div className={css(teamStyles.headContainer)}>
         <div className={css(teamStyles.description)}
           dangerouslySetInnerHTML={
