@@ -1,5 +1,5 @@
 import React from 'react'
-import Provider from './src/context/GlobalContext'
+import Provider from './src/context/globalContext'
 
 export const wrapRootElement = Provider
 

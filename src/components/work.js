@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import LazyLoad from 'react-lazyload'
-import { GlobalContext } from '../context/GlobalContext'
+import { GlobalContext } from '../context/globalContext'
 import { StyleSheet, css } from 'aphrodite'
 import { screenSize, titleTransform } from './styles/styles'
 

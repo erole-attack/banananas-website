@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { Link } from 'gatsby'
 import { graphql, useStaticQuery } from 'gatsby'
-import { GlobalContext } from '../context/GlobalContext'
+import { GlobalContext } from '../context/globalContext'
 import { StyleSheet, css } from 'aphrodite'
 import { screenSize } from './styles/styles'
 import navicon from '../images/Banananas_navbar_logo.png'

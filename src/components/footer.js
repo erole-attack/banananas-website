@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { StyleSheet, css } from 'aphrodite'
-import { GlobalContext } from '../context/GlobalContext'
+import { GlobalContext } from '../context/globalContext'
 
 export default () => {
 
