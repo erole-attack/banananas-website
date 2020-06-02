@@ -86,7 +86,7 @@ const quotesStyles = StyleSheet.create({
     marginTop: '2%',
     display: 'grid',
     width: '90vw',
-    height: '35vh',
+    height: '22vw',
     minHeight: '350px',
     gridTemplateColumns: '1fr 10fr 1fr',
     gridTemplateRows: '1fr 6fr 1fr',
@@ -96,8 +96,11 @@ const quotesStyles = StyleSheet.create({
     borderRadius: '25px',
     boxShadow: '2.5px 5px 30px #888888',
     zIndex: '500',
+    [screenSize.smartphoneLandscape]: {
+      marginTop: '6%'
+    },
     [screenSize.smartphone]: {
-      marginTop: '0'
+      marginTop: '10%'
     }
   },
 
@@ -134,19 +137,30 @@ const quotesStyles = StyleSheet.create({
     },
     [screenSize.smartphoneLandscape]: {
       width: '100%',
-      height: '100%'
+      height: '300px'
     },
     [screenSize.smartphone]: {
       width: '100%',
-      height: '80%'
+      height: '300px'
     }
   },
 
   quoteContainer: {
-    height: '30vh',
-    minHeight: '300px',
+    height: '18vw',
     display: 'flex',
     flexWrap: 'wrap',
+    [screenSize.tablet]: {
+      width: '100%',
+      height: '90%'
+    },
+    [screenSize.smartphoneLandscape]: {
+      width: '110%',
+      height: '100px'
+    },
+    [screenSize.smartphone]: {
+      width: '110%',
+      height: '100px'
+    }
   },
 
   sign: {
@@ -155,9 +169,20 @@ const quotesStyles = StyleSheet.create({
     left: '-39%',
     top: '20%',
     color: 'white',
-    maxHeight: '3vw',
+    height: '2vw',
     pointerEvents: 'none',
-    userSelect: 'none'
+    userSelect: 'none',
+    [screenSize.tablet]: {
+      height: '30px',
+    },
+    [screenSize.smartphoneLandscape]: {
+      left: '-38%',
+      height: '40px'
+    },
+    [screenSize.smartphone]: {
+      left: '-38%',
+      height: '40px'
+    }
   },
 
   quote: {
@@ -170,14 +195,16 @@ const quotesStyles = StyleSheet.create({
     marginLeft: '15%',
     marginRight: '15%',
     [screenSize.tablet]: {
-      fontSize: '2.4vw',
+      fontSize: '12pt',
+      lineHeight: '14.5pt'
     },
     [screenSize.smartphoneLandscape]: {
-      fontSize: '3.4vw'
-
+      fontSize: '13pt',
+      lineHeight: '18.5pt'
     },
     [screenSize.smartphone]: {
-      fontSize: '4.2vw'
+      fontSize: '13pt',
+      lineHeight: '18.5pt'
     }
   },
 
@@ -190,16 +217,16 @@ const quotesStyles = StyleSheet.create({
     alignSelf: 'center',
     fontSize: '1.1vw',
     [screenSize.tablet]: {
-      fontSize: '1.4vw',
-      top: '0%'
+      fontSize: '10pt',
+      top: '100px'
     },
     [screenSize.smartphoneLandscape]: {
-      fontSize: '1.7vw',
-      top: '20%'
+      fontSize: '10pt',
+      top: '-100px'
     },
     [screenSize.smartphone]: {
-      fontSize: '2.1vw',
-      top: '0%',
+      fontSize: '10pt',
+      top: '-100px'
     }
   }
 

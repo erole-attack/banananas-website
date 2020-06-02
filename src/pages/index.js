@@ -11,17 +11,17 @@ import Contact from '../components/contact'
 import SEO from '../components/seo'
 
 const IndexPage = () => (
-  <Layout>
-    <SEO title="BANANANAS heet u welkom!" />
-    <Header mainPage={() => true}/>
-    <About/>
-    <Services/>
-    <Concept/>
-    <Quotes/>
-    <Work/>
-    <Team/>
-    <Contact/>
-  </Layout>
+    <Layout>
+      <SEO title="BANANANAS heet u welkom!" />
+      <Header mainPage={() => true}/>
+      <About/>
+      <Services/>
+      <Concept/>
+      <Quotes/>
+      <Work/>
+      <Team/>
+      <Contact/>
+    </Layout>
 )
 
 export default IndexPage

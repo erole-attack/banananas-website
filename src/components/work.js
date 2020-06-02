@@ -1,10 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import LazyLoad from 'react-lazyload'
+import { GlobalContext } from '../context/GlobalContext'
 import { StyleSheet, css } from 'aphrodite'
-import { screenSize, titleTransform } from "./styles/styles"
+import { screenSize, titleTransform } from './styles/styles'
 
 export default () => {
+
+  const { filter, setToKMOs, setToUitgeverijen, setToReclamebureaus, setToAll, changeWorkFilter, mainPage } = useContext(GlobalContext)
+
   const data = useStaticQuery(
     graphql `
       query getWorkData {
@@ -21,11 +25,11 @@ export default () => {
     `
   )
 
-  const [filter, setFilter] = React.useState('all')
+  useEffect(() => {
+    changeWorkFilter()
+  },[window.location.pathname])
 
-  const toggleFilter = (argument) => setFilter(argument)
-
-  function filterPhotos(){
+  const filterPhotos = () => {
 
     if (filter !== 'all') {
       const newData = data.contentfulWork.workImages.filter(function (item) {
@@ -37,7 +41,7 @@ export default () => {
       return(
         newData.map(image =>
           <div className={css(workStyles.container)}>
-            <LazyLoad height={400}>
+            <LazyLoad offset={300}>
               <img className={css(workStyles.image)} src={image.file.url}/>
             </LazyLoad>
             <div className={css(workStyles.overlay)}>
@@ -52,7 +56,7 @@ export default () => {
       return(
         data.contentfulWork.workImages.map(image =>
           <div className={css(workStyles.container)}>
-            <LazyLoad height={200}>
+            <LazyLoad offset={300}>
               <img className={css(workStyles.image)} src={image.file.url}/>
             </LazyLoad>
             <div className={css(workStyles.overlay)}>
@@ -71,12 +75,21 @@ export default () => {
           {titleTransform(data.contentfulWork)}
         </h1>
         <div className={css(workStyles.buttons)}>
-          <button className={css(workStyles.button)} onClick={ () => toggleFilter('all') }>{filter === "all" ? <strong>TOON ALLES</strong> : <span>TOON ALLES</span>}</button>
-          <button className={css(workStyles.button)} onClick={ () => toggleFilter(1) }>{filter === 1 ? <strong>KMO'S</strong> : <span>KMO'S</span>}</button>
-          <button className={css(workStyles.button)} onClick={ () => toggleFilter(2) }>{filter === 2 ? <strong>UITGEVERIJEN</strong> : <span>UITGEVERIJEN</span>}</button>
+          <button className={filter == 'all' ? css(workStyles.active) : css(workStyles.button)} onClick={ setToAll }>
+            {filter == 'all' ? <strong>TOON ALLES</strong> : <span>TOON ALLES</span>}
+          </button>
+          <button className={filter == 1 ? css(workStyles.active) : css(workStyles.button)} onClick={ setToKMOs }>
+            {filter == 1 ? <strong>KMO'S</strong> : <span>KMO'S</span>}
+          </button>
+          <button className={filter == 2 ? css(workStyles.active) : css(workStyles.button)} onClick={ setToUitgeverijen }>
+            {filter == 2 ? <strong>UITGEVERIJEN</strong> : <span>UITGEVERIJEN</span>}
+          </button>
+          <button className={filter == 3 ? css(workStyles.active) : css(workStyles.button)} onClick={ setToReclamebureaus }>
+            {filter == 3 ? <strong>RECLAMEBUREAUS</strong> : <span>RECLAMEBUREAUS</span>}
+          </button>
         </div>
       </div>
-      <div className={css(workStyles.wrapper)}>
+      <div className={mainPage ? css(workStyles.mainWrapper) : css(workStyles.wrapper)}>
         {filterPhotos()}
       </div>
     </div>
@@ -125,12 +138,42 @@ const workStyles = StyleSheet.create({
     ':hover': {
         cursor: 'pointer',
         background: 'linear-gradient(to right, #136a8a, #267871)'
+    }
+  },
+
+  active: {
+    border: 'none',
+    color: 'white',
+    background: 'linear-gradient(to right, #136a8a, #267871)',
+    padding: '10px 32px',
+    borderRadius: '5px',
+    boxShadow: '5px 5px 9px #bdc7c9',
+    margin: '5px',
+    textAlign: 'center',
+    textDecoration: 'none',
+    display: 'inline-block',
+  },
+
+  mainWrapper: {
+    background: 'white',
+    borderRadius: '15px',
+    display: 'flex',
+    flexWrap: 'wrap',
+    placeContent: 'center',
+    alignItems: 'center',
+    margin: '0 auto',
+    width: '74vw',
+    paddingTop: '1.2vw',
+    paddingBottom: '1.5vw',
+    overflow: 'hidden',
+    [screenSize.tablet]: {
+      width: '67vw',
     },
   },
 
   wrapper: {
     background: 'white',
-    borderRadius: '15px',
+    borderRadius: '15px 15px 0 0',
     display: 'flex',
     flexWrap: 'wrap',
     placeContent: 'center',
@@ -165,9 +208,8 @@ const workStyles = StyleSheet.create({
       }
     },
     [screenSize.tablet]: {
-      width: '45vw',
-      height: '45vw',
-      padding: '1vw'
+      width: '30vw',
+      height: '20vw'
     },
     [screenSize.smartphoneLandscape]: {
       width: '40vw',

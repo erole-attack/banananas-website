@@ -39,11 +39,12 @@ export default () => {
   const aboutStyles = StyleSheet.create({
 
     container: {
+      margin: '0 auto',
       backgroundColor: '#f2f6f7',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      width: '100vw',
+      width: '100%',
       height: '38vh',
       overflow: 'hidden',
       minHeight: '280px',
@@ -55,10 +56,7 @@ export default () => {
         height: '45vh'
       },
       [screenSize.smartphone]: {
-        backgroundColor: '#101213',
-        color: 'white',
-        height: '35vh',
-        minHeight: '200px'
+        height: '40vh'
       }
     },
 
@@ -66,6 +64,12 @@ export default () => {
       [screenSize.tablet]: {
         display: 'none'
       },
+      [screenSize.smartphoneLandscape]: {
+        display: 'none'
+      },
+      [screenSize.smartphone]: {
+        display: 'none'
+      }
     },
 
     grid: {
@@ -73,39 +77,39 @@ export default () => {
       display: 'flex',
       width: '55%',
       height: '100%',
-      gridTemplateColumns: '1',
-      gridTemplateRows: '100%',
       justifyContent: 'center',
       alignItems: 'center',
       textAlign: 'center',
       [screenSize.tablet]: {
+        margin: '0 auto',
         width: '80%',
       },
       [screenSize.smartphoneLandscape]: {
+        margin: '0 auto',
         width: '90%',
       },
       [screenSize.smartphone]: {
+        marginLeft: '0',
         width: '95%',
       }
     },
 
     description: {
-      fontSize: '1.1vw',
+      fontSize: '1.2vw',
       backgroundColor:'white',
       padding: '3%',
       borderRadius: '5px',
       [screenSize.tablet]: {
-        fontSize: '1.6vw',
-        lineHeight: '2.4vw'
+        fontSize: '12pt',
+        lineHeight: '16pt'
       },
       [screenSize.smartphoneLandscape]: {
-        fontSize: '2.1vw',
-        lineHeight: '3vw'
+        fontSize: '12pt',
+        lineHeight: '16pt'
       },
       [screenSize.smartphone]: {
-        fontSize: '2.2vw',
-        lineHeight: '3.8vw',
-        color: '#E1E1E1',
+        fontSize: '12pt',
+        lineHeight: '16pt'
       }
     }
 

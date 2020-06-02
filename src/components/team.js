@@ -41,7 +41,7 @@ export default () => {
       <div className={css(teamStyles.wrapper)}>
         {data.contentfulTeam.members.map(member =>
           <div className={css(teamStyles.imageContainer)}>
-            <LazyLoad height={600}>
+            <LazyLoad offset={1000}>
               <img className={css(teamStyles.image)} src={member.file.url}/>
             </LazyLoad>
             <div className={css(teamStyles.overlay)}>
@@ -126,7 +126,7 @@ const teamStyles = StyleSheet.create({
     borderRadius: '10px',
     ':hover': {
       ':nth-child(1n) > div': {
-        borderRadius: '10px',
+        borderRadius: '0 0 10px 10px',
         background: '#222A2E',
         opacity: '1'
       },
@@ -160,10 +160,11 @@ const teamStyles = StyleSheet.create({
   },
 
   overlay: {
+    paddingTop: '0.75vw',
+    paddingBottom: '0.75vw',
     placeSelf: 'end center',
-    height: '8vw',
-    width: '12vw',
-    marginBottom: '1.5vw',
+    height: '4vw',
+    width: '100%',
     gridColumnStart: '1',
     gridColumnEnd: '4',
     gridRowStart: '1',
@@ -186,6 +187,7 @@ const teamStyles = StyleSheet.create({
   overlayTitle: {
     fontSize: '0.9vw',
     textAlign: 'center',
+    margin: '0 auto',
     color: 'white',
     '@media only screen and (min-width: 680px) and (max-width: 960px)': {
       fontSize: '20pt',
@@ -198,6 +200,7 @@ const teamStyles = StyleSheet.create({
   overlayText: {
     fontSize: '1.4vw',
     textAlign: 'center',
+    margin: '0 auto',
     color: 'white',
     '@media only screen and (min-width: 680px) and (max-width: 960px)': {
       fontSize: '30pt',

@@ -1,14 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { StyleSheet, css } from 'aphrodite'
+import { GlobalContext } from '../context/GlobalContext'
 
 export default () => {
 
+  const { mainPage } = useContext(GlobalContext)
+
   var curDate = new Date()
-  console.log(curDate.getFullYear())
 
   return(
     <div className={css(contactStyles.background)}>
-      <div className={css(contactStyles.container)}>
+      <div className={mainPage ? css(contactStyles.mainContainer) : css(contactStyles.container)}>
         <p className={css(contactStyles.copyright)}>© {curDate.getFullYear()} Banananas. All rights reserved.</p>
       </div>
     </div>
@@ -23,7 +25,7 @@ const contactStyles = StyleSheet.create({
     paddingBottom: '3.5vw',
   },
 
-  container: {
+  mainContainer: {
     background: '#181e21',
     borderRadius: '0 0 35px 35px',
     padding: '2%',
@@ -32,7 +34,18 @@ const contactStyles = StyleSheet.create({
     margin: '0 auto'
   },
 
+  container: {
+    display: 'flex',
+    alignItems: 'center',
+    background: '#181e21',
+    borderRadius: '0 0 35px 35px',
+    width: '74vw',
+    height: '10vh',
+    margin: '0 auto'
+  },
+
   copyright: {
+    paddingLeft: '2vw',
     color: 'white',
     fontSize: '1vw'
   }

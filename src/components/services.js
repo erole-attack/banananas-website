@@ -1,8 +1,8 @@
-import React from 'react'
-import { Link } from "gatsby"
+import React, { useContext }from 'react'
+import { Link } from 'gatsby'
 import { graphql, useStaticQuery } from 'gatsby'
 import { StyleSheet, css } from 'aphrodite'
-import { screenSize } from "./styles/styles"
+import { screenSize } from './styles/styles'
 
 export default () => {
   const data = useStaticQuery(
@@ -30,6 +30,14 @@ export default () => {
     `
   )
 
+  const generateServiceBlock = param => {
+    switch(param) {
+      case "KMO's": return 'kmos'
+      case 'Reclamebureaus': return 'reclamebureaus'
+      case 'Uitgeverijen': return 'uitgeverijen'
+    }
+  }
+
   const trimServiceBlockText = (path) =>{
     const serviceBlockText = path.slice(0,100).split(" ")
     const popped = serviceBlockText.pop()
@@ -41,7 +49,8 @@ export default () => {
       <div className={css(servicesStyles.container)}>
         <div className={css(servicesStyles.grid)}>
           {data.allContentfulServices.edges.map(edge =>
-            <Link to="/page-2/" className={css(servicesStyles.serviceBlock)}>
+            <>
+            <Link to={generateServiceBlock(edge.node.title)} className={css(servicesStyles.serviceBlock)}>
               <img src={edge.node.servicesIcon.file.url}
                 className={css(servicesStyles.icons)}
               />
@@ -56,6 +65,7 @@ export default () => {
               />
               <p className={css(servicesStyles.button)}>LEES MEER</p>
             </Link>
+            </>
           )}
         </div>
       </div>
@@ -67,28 +77,27 @@ const servicesStyles = StyleSheet.create({
 
   container: {
     width: '68vw',
-    height: '54vh',
+    height: '30vw',
     background: '#283237',
     borderRadius: '15px',
     boxShadow: '2.5px 5px 30px #888888',
     overflow: 'hidden',
     color: 'white',
     margin: '0 auto',
-    minHeight: '400px',
     [screenSize.tablet]: {
-      height: '10vh',
-      width: '85vw',
+      height: '380px',
+      width: '90vw',
     },
     [screenSize.smartphoneLandscape]: {
-      height: '160vh',
-      width: '80vw',
-      minHeight: '1000px'
+      height: '1300px',
+      width: '65vw',
+      padding: '25px'
     },
     [screenSize.smartphone]: {
-      height: '160vh',
-      minWidth: '60%',
-      minHeight: '1200px',
-      background: '#101213',
+      height: '1300px',
+      width: '93vw',
+      paddingTop: '12.5px',
+      paddingBottom: '12.5px'
     }
   },
 
@@ -103,15 +112,11 @@ const servicesStyles = StyleSheet.create({
     alignItems: 'center',
     width: '100%',
     height: '100%',
-    [screenSize.tablet]: {
-      flexWrap: 'nowrap',
-      width: '90%'
-    },
     [screenSize.smartphoneLandscape]: {
-      width: '90%'
+      flexWrap: 'wrap',
     },
     [screenSize.smartphone]: {
-      width: '90%'
+      flexWrap: 'wrap',
     }
   },
 
@@ -124,7 +129,7 @@ const servicesStyles = StyleSheet.create({
     justifyContent: 'center',
     borderRadius: '25px',
     width: '14vw',
-    height: '36vh',
+    height: '20vw',
     padding: '2vw',
     minHeight: '18vw',
     boxShadow: '5px 10px 18px #101213',
@@ -136,28 +141,50 @@ const servicesStyles = StyleSheet.create({
         ':nth-child(1n) > p': {
           fontSize: '1.2vw'
         },
-      },
+    },
     ':link': {
       textDecoration: 'none',
       color: 'white'
     },
     [screenSize.tablet]: {
-      marginLeft: '3%',
-      marginRight: '3%',
-      padding: '20px',
-      borderRadius: '25px',
-      gridTemplateRows: '40% 12% 39% 9%',
-      height: '26vh',
-      minHeight: '200px',
-      outline: 'none'
+      marginLeft: '1.2vw',
+      marginRight: '1.2vw',
+      width: '180px',
+      height: '270px',
+      ':hover': {
+          cursor: 'pointer',
+          background: 'linear-gradient(to right, #136a8a, #267871)',
+          ':nth-child(1n) > p': {
+            fontSize: '12pt'
+          },
+      }
     },
     [screenSize.smartphoneLandscape]: {
-      width: '50vw'
+      marginLeft: '1.2vw',
+      marginRight: '1.2vw',
+      width: '280px',
+      height: '370px',
+      ':hover': {
+          cursor: 'pointer',
+          background: 'linear-gradient(to right, #136a8a, #267871)',
+          ':nth-child(1n) > p': {
+            fontSize: '18pt'
+          },
+      }
     },
     [screenSize.smartphone]: {
-      background: '#101213',
-      padding: '20px',
-      width: '85vw'
+      padding: '15px',
+      marginLeft: '1.2vw',
+      marginRight: '1.2vw',
+      width: '280px',
+      height: '370px',
+      ':hover': {
+          cursor: 'pointer',
+          background: 'linear-gradient(to right, #136a8a, #267871)',
+          ':nth-child(1n) > p': {
+            fontSize: '18pt'
+          },
+      }
     }
   },
 
@@ -169,7 +196,7 @@ const servicesStyles = StyleSheet.create({
     pointerEvents: 'none',
     userSelect: 'none',
     [screenSize.tablet]: {
-      height: '90%'
+      height: '60px',
     },
     [screenSize.smartphoneLandscape]: {
       height: '80px'
@@ -188,11 +215,13 @@ const servicesStyles = StyleSheet.create({
     gridRowStart: '2',
     gridRowEnd: '3',
     [screenSize.tablet]: {
-      fontSize: '1.4vw',
+      fontSize: '13pt',
     },
     [screenSize.smartphoneLandscape]: {
+      fontSize: '18pt',
     },
     [screenSize.smartphone]: {
+      fontSize: '18pt',
     }
   },
 
@@ -204,13 +233,16 @@ const servicesStyles = StyleSheet.create({
     gridRowEnd: '4',
     textAlign: 'center',
     [screenSize.tablet]: {
-      fontSize: '1.2vw',
+      fontSize: '9pt',
+      lineHeight: '12pt',
     },
     [screenSize.smartphoneLandscape]: {
-
+      fontSize: '12pt',
+      lineHeight: '16pt',
     },
     [screenSize.smartphone]: {
-
+      fontSize: '11pt',
+      lineHeight: '14pt',
     }
   },
 
@@ -231,11 +263,13 @@ const servicesStyles = StyleSheet.create({
       cursor: 'pointer',
     },
     [screenSize.tablet]: {
-      fontSize: '1vw'
+      fontSize: '7pt',
     },
     [screenSize.smartphoneLandscape]: {
+      fontSize: '12pt',
     },
     [screenSize.smartphone]: {
+      fontSize: '12pt',
     }
   }
 

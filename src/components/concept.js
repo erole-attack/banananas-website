@@ -95,7 +95,7 @@ export default () => {
       </div>
       <div className={css(conceptStyles.container)}>
         <div className={css(conceptStyles.content)}>
-          <LazyLoad height={600}>
+          <LazyLoad offset={300}>
             <img
               className={css(conceptStyles.backimg)}
               src={data.contentfulConcept.banaanAnananas.file.url}>
@@ -140,15 +140,11 @@ export default () => {
       margin: '0 auto',
       display: 'flex',
       width: '85vw',
-      height: '100vh',
+      height: '55vw',
       alignItems: 'center',
       justifyContent: 'center',
-      minHeight: '700px',
       overflow: 'hidden',
       [screenSize.tablet]: {
-        height: '80vh',
-        paddingBottom: '15vh',
-        minHeight: '750px'
       },
       [screenSize.smartphoneLandscape]: {
         display: 'none'
@@ -159,7 +155,16 @@ export default () => {
     },
 
     title: {
-      marginTop: '3%'
+      marginTop: '3%',
+      [screenSize.tablet]: {
+        marginTop: '6%'
+      },
+      [screenSize.smartphoneLandscape]: {
+        display: 'none'
+      },
+      [screenSize.smartphone]: {
+        display: 'none'
+      }
     },
 
     content: {

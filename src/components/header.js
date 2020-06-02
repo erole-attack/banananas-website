@@ -1,10 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import { Link } from 'gatsby'
 import { graphql, useStaticQuery } from 'gatsby'
+import { GlobalContext } from '../context/GlobalContext'
 import { StyleSheet, css } from 'aphrodite'
-import { screenSize } from "./styles/styles"
+import { screenSize } from './styles/styles'
 import navicon from '../images/Banananas_navbar_logo.png'
+import { FaChevronCircleLeft } from 'react-icons/fa'
 
 export default () => {
+
+  const { mainPage, checkMainpage } = useContext(GlobalContext)
+
   const data = useStaticQuery (
     graphql `
       query getHeaderData {
@@ -24,22 +30,24 @@ export default () => {
     `
   )
 
-  const [mainPage, setMainPage] = useState(null);
-
-  function isMainpage(bool){
-    setMainPage(bool)
+  const placeBackButton = () => {
+    if (!mainPage) {
+      return(
+        <div className={css(headerStyles.navicon)}>
+          <Link
+            to='/'
+            className={css(headerStyles.back)}>
+              <FaChevronCircleLeft className={css(headerStyles.icon)}/>
+          </Link>
+        </div>
+      )
+    }
   }
-  console.log(mainPage)
 
   return(
     <div className={css(headerStyles.background)}>
       <div className={css(headerStyles.container)}>
-        <div className={css(headerStyles.navicon)}>
-          <img
-            className={css(headerStyles.logo)}
-            src={navicon}>
-          </img>
-        </div>
+          {placeBackButton()}
         <img
           className={css(headerStyles.backimg)}
           src={data.contentfulHeader.backgroundImage.file.url}>
@@ -64,7 +72,7 @@ export default () => {
       margin: '0 auto',
       marginTop: '2vw',
       display: 'grid',
-      width: '95vw',
+      width: '93vw',
       height: '45vh',
       gridTemplateColumns: '1fr 10fr 1fr',
       gridTemplateRows: '1fr 6fr 1fr',
@@ -80,13 +88,12 @@ export default () => {
         height: '55vh'
       },
       [screenSize.smartphone] : {
-        height: '65vh',
-        minHeight: '300px'
+        height: '60vh',
       }
     },
 
     navicon: {
-      opacity: '0.6',
+      opacity: '1',
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
@@ -95,17 +102,24 @@ export default () => {
       backgroundColor: '#222a2e',
       left: '4vw',
       top: '4vw',
-      width: '15vw',
+      width: '3.5vw',
       borderRadius: '15px',
       ':hover': {
-        opacity: '1',
-        cursor: 'pointer'
-      }
+          cursor: 'pointer',
+          background: 'linear-gradient(to right, #136a8a, #267871)'
+      },
     },
 
-    logo: {
-      padding: '1vw',
-      marginBottom: '0'
+    back: {
+      userSelect: 'none',
+      fontSize: '1.8vw',
+      display: 'flex',
+      padding: '0.5vw',
+      justifyContent: 'center',
+      color: 'white',
+      ':focus': {
+        outline: 'none'
+      },
     },
 
     backimg: {

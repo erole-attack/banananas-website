@@ -40,6 +40,7 @@ strong {
 }
 h2 {
   font-weight: 400;
+  text-decoration: none;
 }
 h3 {
   font-size: 0.9vw;
