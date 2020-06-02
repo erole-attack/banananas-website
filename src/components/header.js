@@ -9,7 +9,7 @@ import { FaChevronCircleLeft } from 'react-icons/fa'
 
 export default () => {
 
-  const { mainPage, checkMainpage } = useContext(GlobalContext)
+  const { mainPage } = useContext(GlobalContext)
 
   const data = useStaticQuery (
     graphql `

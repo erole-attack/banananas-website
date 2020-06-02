@@ -1,9 +1,9 @@
 import React, { createContext, useState, useEffect } from 'react'
 import { StyleSheet, css } from 'aphrodite'
 
-const GlobalContext = createContext()
+export const GlobalContext = createContext()
 
-const GlobalContextProvider = ({ children }) => {
+const Provider = props => {
 
   //filter options
   const [filter, setFilter] = useState('all')
@@ -24,8 +24,8 @@ const GlobalContextProvider = ({ children }) => {
     setFilter('all')
   }
 
-  const changeWorkFilter = () => {
-    switch(window.location.pathname) {
+  const changeWorkFilter = newPath => {
+    switch(newPath) {
       case '/': return setFilter('all')
       case '/kmos': return setFilter(1)
       case '/uitgeverijen': return setFilter(2)
@@ -36,15 +36,20 @@ const GlobalContextProvider = ({ children }) => {
   //header options
   const [mainPage, setMainPage] = useState(true)
 
-  const checkMainpage = () => {
-    window.location.pathname === '/' ? setMainPage(true) : setMainPage(false)
+  const checkMainpage = newPath => {
+    console.log(newPath)
+    newPath === '/' ? setMainPage(true) : setMainPage(false)
   }
 
   return (
     <GlobalContext.Provider value={{ filter, setToKMOs, setToUitgeverijen, setToReclamebureaus, setToAll, changeWorkFilter, mainPage, checkMainpage }}>
-      {children}
+      {props.children}
     </GlobalContext.Provider>
   )
 }
 
-export { GlobalContext, GlobalContextProvider }
+export default ({ element }) => (
+  <Provider>
+    {element}
+  </Provider>
+);

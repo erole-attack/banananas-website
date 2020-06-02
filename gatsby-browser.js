@@ -1,9 +1,7 @@
 import React from 'react'
-import { GlobalContextProvider } from './src/context/GlobalContext'
+import Provider from './src/context/GlobalContext'
 
-export const wrapRootElement = ({ element }) => (
-  <GlobalContextProvider>{element}</GlobalContextProvider>
-)
+export const wrapRootElement = Provider
 
 /**
  * Implement Gatsby's Browser APIs in this file.

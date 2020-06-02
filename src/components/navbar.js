@@ -11,6 +11,10 @@ export default () => {
 
   const { mainPage, checkMainpage } = useContext(GlobalContext)
 
+  useEffect(() => {
+    checkMainpage(window.location.pathname)
+  },[])
+
   const scrollY = useScrollPosition(60 /*fps*/)
 
   useEffect(() => {
@@ -21,10 +25,6 @@ export default () => {
     return () => clearTimeout(timeout)
 
   },[scrollY])
-
-  useEffect(() => {
-    checkMainpage()
-  },[window.location.pathname])
 
   if (mainPage) {
     return (

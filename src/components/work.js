@@ -26,8 +26,8 @@ export default () => {
   )
 
   useEffect(() => {
-    changeWorkFilter()
-  },[window.location.pathname])
+    changeWorkFilter(window.location.pathname)
+  },[])
 
   const filterPhotos = () => {
 
