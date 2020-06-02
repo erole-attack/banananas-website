@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import { graphql, useStaticQuery } from 'gatsby'
-import { GlobalContext } from '../context/GlobalContext'
 import { StyleSheet, css } from 'aphrodite'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
