@@ -62,16 +62,17 @@ export default () => {
           <div className={css(contactStyles.columnThree)}>
             <form
               name='contact'
+              method="post"
               className={css(contactStyles.form)}
               onSubmit={handleSubmit(onSubmit)}
               data-netlify="true"
-              netlify-honeypot="bot-field"
+              data-netlify-honeypot="bot-field"
             >
               <input type="hidden" name="form-name" value="contact" />
-              <input type="hidden" name="bot-field" />
               <input
                 className={css(contactStyles.inputName)}
                 name="name"
+                type='text'
                 placeholder="Naam"
                 ref={register({
                   validate: value => value !== "admin" || "Nice try!"
@@ -82,6 +83,7 @@ export default () => {
               <input
                 className={css(contactStyles.inputEmail)}
                 name="email"
+                type='email'
                 placeholder="E-mail"
                 ref={register({
                   required: "Required",
@@ -95,6 +97,8 @@ export default () => {
 
               <PhoneInput
                 className={css(contactStyles.inputPhone)}
+                name="phone"
+                type='phone'
                 placeholder="Telefoonnummer"
                 value={value}
                 onChange={setValue}
@@ -104,6 +108,7 @@ export default () => {
               <textarea
                 className={css(contactStyles.inputMessage)}
                 name="message"
+                type='text'
                 placeholder="Bericht"
                 ref={register({
                   required: "Required",
@@ -112,7 +117,9 @@ export default () => {
 
               <button
                 className={css(contactStyles.button)}
-                type="submit">VERSTUREN</button>
+                name="submit"
+                type="submit">VERSTUREN
+              </button>
             </form>
           </div>
         </div>
