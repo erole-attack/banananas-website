@@ -171,7 +171,7 @@ const teamStyles = StyleSheet.create({
     },
     [screenSize.smartphone]: {
       width: '90vw',
-      height: 'auto',
+      height: '140vw'
     }
   },
 
