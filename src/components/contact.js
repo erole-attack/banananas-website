@@ -64,7 +64,7 @@ export default () => {
               name='contact'
               method="post"
               className={css(contactStyles.form)}
-              onSubmit={handleSubmit(onSubmit)}
+              onSubmit={handleSubmit}
               data-netlify="true"
               data-netlify-honeypot="bot-field"
             >
