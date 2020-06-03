@@ -141,7 +141,7 @@ const contactStyles = StyleSheet.create({
     display: 'grid',
     gridTemplateColumns: '5% auto 5%',
     gridTemplateRows: '18% auto',
-    width: '90vw',
+    width: '90%',
     height: '60vw',
     minHeight: '700px',
     borderRadius: '35px 35px 0 0',
@@ -149,15 +149,17 @@ const contactStyles = StyleSheet.create({
     overflow: 'hidden',
     [screenSize.tablet]: {
       minHeight: '700px',
-      gridTemplateColumns: '10% auto 10%',
+      gridTemplateColumns: '10% 80% 10%',
+      gridTemplateRows: '18% auto 5%',
     },
     [screenSize.smartphoneLandscape]: {
       minHeight: '700px',
-      gridTemplateColumns: '10% auto 10%',
+      gridTemplateColumns: '10% 80% 10%',
+      gridTemplateRows: '18% auto 5%',
     },
     [screenSize.smartphone]: {
       minHeight: '850px',
-      gridTemplateColumns: '2% auto 2%',
+      gridTemplateColumns: '2% 96% 2%',
       gridTemplateRows: '10% auto',
     }
   },
@@ -172,6 +174,8 @@ const contactStyles = StyleSheet.create({
   wrapper: {
     display: 'flex',
     flexWrap: 'wrap',
+    justifyContent: 'center',
+    width: '100%',
     height: '100%',
     gridColumnStart: '2',
     gridColumnEnd: '3',
@@ -278,9 +282,11 @@ const contactStyles = StyleSheet.create({
   },
 
   columnThree: {
+    display: 'flex',
+    justifyContent: 'center',
     minHeight: '450px',
     paddingTop: '5%',
-    paddingBottom: '2%',
+    paddingBottom: '4%',
     flexBasis: "40%",
     [screenSize.tablet]: {
       paddingTop: '0',

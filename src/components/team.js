@@ -161,7 +161,7 @@ const teamStyles = StyleSheet.create({
     },
     [screenSize.tablet]: {
       width: '16vw',
-      height: 'auto',
+      height: '30vw',
       marginRight: '1%',
       marginLeft: '1%',
     },
