@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { StyleSheet, css } from 'aphrodite'
+import { screenSize, titleTransform } from './styles/styles'
 import { GlobalContext } from '../context/globalContext'
 
 export default () => {
@@ -30,8 +31,17 @@ const contactStyles = StyleSheet.create({
     borderRadius: '0 0 35px 35px',
     padding: '2%',
     width: '90vw',
-    height: '6vh',
-    margin: '0 auto'
+    height: '4vw',
+    margin: '0 auto',
+    [screenSize.tablet]: {
+      height: '6vw',
+    },
+    [screenSize.smartphoneLandscape]: {
+      height: '8vw',
+    },
+    [screenSize.smartphone]: {
+      height: '10vw',
+    }
   },
 
   container: {
@@ -41,13 +51,31 @@ const contactStyles = StyleSheet.create({
     borderRadius: '0 0 35px 35px',
     width: '74vw',
     height: '10vh',
-    margin: '0 auto'
+    margin: '0 auto',
+    [screenSize.tablet]: {
+      width: '67vw'
+    },
+    [screenSize.smartphoneLandscape]: {
+      width: '90vw'
+    },
+    [screenSize.smartphone]: {
+      width: '93vw'
+    }
   },
 
   copyright: {
     paddingLeft: '2vw',
     color: 'white',
-    fontSize: '1vw'
+    fontSize: '1vw',
+    [screenSize.tablet]: {
+      fontSize: '1.4vw'
+    },
+    [screenSize.smartphoneLandscape]: {
+      fontSize: '1.7vw'
+    },
+    [screenSize.smartphone]: {
+      fontSize: '2.6vw'
+    }
   }
 
 })

@@ -63,9 +63,6 @@ const teamStyles = StyleSheet.create({
     flexWrap: 'wrap',
     minHeight: '500px',
     paddingBottom: '70px',
-    [screenSize.smartphone]: {
-      paddingBottom: '0px'
-    }
   },
 
   headContainer: {
@@ -79,16 +76,22 @@ const teamStyles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     width: '70vw',
-    height: '25vh',
+    height: '15vw',
     overflow: 'hidden',
     minHeight: '18vw',
     textAlign: 'center',
-    '@media only screen and (min-width: 200px) and (max-width: 680px)': {
-      width: '80vw',
-      minHeight: '160px',
+    [screenSize.tablet]: {
+      flexDirection: 'column-reverse',
+      minHeight: '300px',
+    },
+    [screenSize.smartphoneLandscape]: {
+      flexDirection: 'column-reverse',
+      minHeight: '300px',
     },
     [screenSize.smartphone]: {
-      marginBottom: '20px'
+      width: '93vw',
+      flexDirection: 'column-reverse',
+      minHeight: '350px',
     }
   },
 
@@ -98,7 +101,29 @@ const teamStyles = StyleSheet.create({
     fontSize: '1.1vw',
     backgroundColor: 'white',
     padding: '1vw',
-    borderRadius: '5px'
+    borderRadius: '5px',
+    [screenSize.tablet]: {
+      fontSize: '14pt',
+      lineHeight: '18pt',
+      paddingLeft: '20vw',
+      paddingRight: '20vw',
+      marginRight: '0%',
+    },
+    [screenSize.smartphoneLandscape]: {
+      fontSize: '14pt',
+      lineHeight: '18pt',
+      paddingLeft: '5vw',
+      paddingRight: '5vw',
+      marginRight: '0%',
+      marginTop: '4%'
+    },
+    [screenSize.smartphone]: {
+      fontSize: '14pt',
+      lineHeight: '18pt',
+      width: '93%',
+      marginRight: '0%',
+      marginTop: '4%'
+    }
   },
 
   wrapper: {
@@ -134,16 +159,20 @@ const teamStyles = StyleSheet.create({
         opacity: '1'
       }
     },
-    '@media only screen and (min-width: 680px) and (max-width: 960px)': {
-      width: '600px',
-      height: '900px',
-      padding: '10px'
+    [screenSize.tablet]: {
+      width: '16vw',
+      height: 'auto',
+      marginRight: '1%',
+      marginLeft: '1%',
     },
-    '@media only screen and (min-width: 200px) and (max-width: 680px)': {
-      width: '400px',
-      height: '600px',
-      padding: '10px'
+    [screenSize.smartphoneLandscape]: {
+      width: '66.6vw',
+      height: 'auto',
     },
+    [screenSize.smartphone]: {
+      width: '90vw',
+      height: 'auto',
+    }
   },
 
   image: {
@@ -160,6 +189,9 @@ const teamStyles = StyleSheet.create({
   },
 
   overlay: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
     paddingTop: '0.75vw',
     paddingBottom: '0.75vw',
     placeSelf: 'end center',
@@ -170,18 +202,15 @@ const teamStyles = StyleSheet.create({
     gridRowStart: '1',
     gridRowEnd: '4',
     opacity: '0',
-    '@media only screen and (min-width: 680px) and (max-width: 960px)': {
-      height: '200px',
-      width: '500px',
-      marginBottom: '50px',
+    [screenSize.tablet]: {
+      height: '6vw',
     },
-    '@media only screen and (min-width: 200px) and (max-width: 680px)': {
-      height: '200px',
-      width: '300px',
-      marginBottom: '50px',
-      backgroundColor: 'rgba(0, 0, 0, 0.4)',
-      opacity: '1'
+    [screenSize.smartphoneLandscape]: {
+      height: '24vw',
     },
+    [screenSize.smartphone]: {
+      height: '30vw',
+    }
   },
 
   overlayTitle: {
@@ -189,12 +218,18 @@ const teamStyles = StyleSheet.create({
     textAlign: 'center',
     margin: '0 auto',
     color: 'white',
-    '@media only screen and (min-width: 680px) and (max-width: 960px)': {
-      fontSize: '20pt',
+    [screenSize.tablet]: {
+      fontSize: '1.2vw',
+      padding: '0.4vw'
     },
-    '@media only screen and (min-width: 200px) and (max-width: 680px)': {
-      fontSize: '16pt',
+    [screenSize.smartphoneLandscape]: {
+      fontSize: '4.3vw',
+      padding: '2.4vw'
     },
+    [screenSize.smartphone]: {
+      fontSize: '5vw',
+      padding: '3.8vw'
+    }
   },
 
   overlayText: {
@@ -202,12 +237,18 @@ const teamStyles = StyleSheet.create({
     textAlign: 'center',
     margin: '0 auto',
     color: 'white',
-    '@media only screen and (min-width: 680px) and (max-width: 960px)': {
-      fontSize: '30pt',
+    [screenSize.tablet]: {
+      fontSize: '1.8vw',
+      padding: '0.4vw'
     },
-    '@media only screen and (min-width: 200px) and (max-width: 680px)': {
-      fontSize: '24pt',
+    [screenSize.smartphoneLandscape]: {
+      fontSize: '6.7vw',
+      padding: '2.4vw'
     },
+    [screenSize.smartphone]: {
+      fontSize: '7.8vw',
+      padding: '3.8vw'
+    }
   }
 
 })

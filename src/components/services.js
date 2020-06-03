@@ -86,7 +86,7 @@ const servicesStyles = StyleSheet.create({
     margin: '0 auto',
     [screenSize.tablet]: {
       height: '380px',
-      width: '90vw',
+      width: '93vw',
     },
     [screenSize.smartphoneLandscape]: {
       height: '1300px',

@@ -109,11 +109,23 @@ const workStyles = StyleSheet.create({
     paddingBottom: '2%',
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    [screenSize.tablet]: {
+      flexDirection: 'column',
+    },
+    [screenSize.smartphoneLandscape]: {
+      flexDirection: 'column',
+    },
+    [screenSize.smartphone]: {
+      flexDirection: 'column',
+    }
   },
 
   title: {
     marginRight: '4vw',
+    [screenSize.smartphone]: {
+      marginTop: '10%',
+    }
   },
 
   buttons: {
@@ -122,6 +134,14 @@ const workStyles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    [screenSize.smartphoneLandscape]: {
+      marginTop: '5%',
+      marginBottom: '1%'
+    },
+    [screenSize.smartphone]: {
+      marginTop: '5%',
+      marginBottom: '4%'
+    }
   },
 
   button: {
@@ -138,6 +158,21 @@ const workStyles = StyleSheet.create({
     ':hover': {
         cursor: 'pointer',
         background: 'linear-gradient(to right, #136a8a, #267871)'
+    },
+    [screenSize.tablet]: {
+      fontSize: '1.4vw',
+      padding: '1.1vw 3.5vw',
+      margin: '0.5vw'
+    },
+    [screenSize.smartphoneLandscape]: {
+      fontSize: '1.8vw',
+      padding: '1.8vw 4.5vw',
+      margin: '0.5vw'
+    },
+    [screenSize.smartphone]: {
+      fontSize: '2vw',
+      padding: '1.8vw 4.5vw',
+      margin: '0.5vw'
     }
   },
 
@@ -152,6 +187,21 @@ const workStyles = StyleSheet.create({
     textAlign: 'center',
     textDecoration: 'none',
     display: 'inline-block',
+    [screenSize.tablet]: {
+      fontSize: '1.4vw',
+      padding: '1.1vw 3.5vw',
+      margin: '0.5vw'
+    },
+    [screenSize.smartphoneLandscape]: {
+      fontSize: '1.8vw',
+      padding: '1.8vw 4.5vw',
+      margin: '0.5vw'
+    },
+    [screenSize.smartphone]: {
+      fontSize: '2vw',
+      padding: '1.8vw 4.5vw',
+      margin: '0.5vw'
+    }
   },
 
   mainWrapper: {
@@ -167,8 +217,14 @@ const workStyles = StyleSheet.create({
     paddingBottom: '1.5vw',
     overflow: 'hidden',
     [screenSize.tablet]: {
-      width: '67vw',
+      width: '67vw'
     },
+    [screenSize.smartphoneLandscape]: {
+      width: '90vw'
+    },
+    [screenSize.smartphone]: {
+      width: '93vw'
+    }
   },
 
   wrapper: {
@@ -182,7 +238,16 @@ const workStyles = StyleSheet.create({
     width: '74vw',
     paddingTop: '1.2vw',
     paddingBottom: '1.5vw',
-    overflow: 'hidden'
+    overflow: 'hidden',
+    [screenSize.tablet]: {
+      width: '67vw'
+    },
+    [screenSize.smartphoneLandscape]: {
+      width: '90vw'
+    },
+    [screenSize.smartphone]: {
+      width: '93vw'
+    }
   },
 
   container: {
@@ -212,14 +277,13 @@ const workStyles = StyleSheet.create({
       height: '20vw'
     },
     [screenSize.smartphoneLandscape]: {
-      width: '40vw',
-      height: '40vw',
-      padding: '2vw'
+      width: '41.5vw',
+      height: '25vw'
     },
     [screenSize.smartphone]: {
-      width: '90vw',
-      height: '90vw',
-      padding: '2.5vw',
+      width: '86.5vw',
+      height: '50vw',
+      margin: '2.5vw'
     }
   },
 
@@ -243,16 +307,13 @@ const workStyles = StyleSheet.create({
     gridRowEnd: '2',
     opacity: '0',
     [screenSize.tablet]: {
-      width: '42vw',
-      height: '42vw'
+
     },
     [screenSize.smartphoneLandscape]: {
-      width: '42vw',
-      height: '42vw'
+
     },
     [screenSize.smartphone]: {
-      width: '85vw',
-      height: '85vw'
+
     }
   },
 
@@ -260,13 +321,13 @@ const workStyles = StyleSheet.create({
     fontSize: '1vw',
     color: 'white',
     [screenSize.tablet]: {
-      fontSize: '20pt',
+      fontSize: '12pt',
     },
     [screenSize.smartphoneLandscape]: {
-      fontSize: '16pt',
+      fontSize: '14pt',
     },
     [screenSize.smartphone]: {
-      fontSize: '18pt',
+      fontSize: '16pt',
     }
   }
 

@@ -73,7 +73,7 @@ export default () => {
       marginTop: '2vw',
       display: 'grid',
       width: '93vw',
-      height: '45vh',
+      height: '30vw',
       gridTemplateColumns: '1fr 10fr 1fr',
       gridTemplateRows: '1fr 6fr 1fr',
       background: 'black',
@@ -100,7 +100,7 @@ export default () => {
       zIndex: '50',
       position: 'absolute',
       backgroundColor: '#222a2e',
-      left: '4vw',
+      left: '5vw',
       top: '4vw',
       width: '3.5vw',
       borderRadius: '15px',
@@ -108,6 +108,18 @@ export default () => {
           cursor: 'pointer',
           background: 'linear-gradient(to right, #136a8a, #267871)'
       },
+      [screenSize.tablet] : {
+        left: '6vw',
+        width: '50px'
+      },
+      [screenSize.smartphoneLandscape] : {
+        left: '6vw',
+        width: '50px'
+      },
+      [screenSize.smartphone] : {
+        left: '6vw',
+        width: '60px'
+      }
     },
 
     back: {
@@ -120,6 +132,18 @@ export default () => {
       ':focus': {
         outline: 'none'
       },
+      [screenSize.tablet] : {
+        fontSize: '16pt',
+        padding: '10px'
+      },
+      [screenSize.smartphoneLandscape] : {
+        fontSize: '18pt',
+        padding: '14px'
+      },
+      [screenSize.smartphone] : {
+        fontSize: '22pt',
+        padding: '16px'
+      }
     },
 
     backimg: {
@@ -139,7 +163,7 @@ export default () => {
 
     topimg: {
       paddingTop: '4%',
-      height: '30vh',
+      height: '15vw',
       minHeight: '200px',
       gridColumnStart: '2',
       gridColumnEnd: '3',

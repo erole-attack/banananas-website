@@ -63,7 +63,8 @@ export default () => {
             <form
               name='contact'
               className={css(contactStyles.form)}
-              onSubmit={handleSubmit(onSubmit)} netlify>
+              onSubmit={handleSubmit(onSubmit)}
+              data-netlify="true">
               <input
                 className={css(contactStyles.inputName)}
                 name="name"
@@ -130,7 +131,7 @@ const contactStyles = StyleSheet.create({
     gridTemplateColumns: '5% auto 5%',
     gridTemplateRows: '18% auto',
     width: '90vw',
-    height: '95vh',
+    height: '60vw',
     minHeight: '700px',
     borderRadius: '35px 35px 0 0',
     background: 'linear-gradient(to right, #b08b28, #f2c94c)',
@@ -174,6 +175,7 @@ const contactStyles = StyleSheet.create({
 
   columnOne: {
     display: 'flex',
+    flexDirection: 'column-reverse',
     flexBasis: "25%",
     [screenSize.tablet]: {
       display: 'none'
@@ -291,6 +293,7 @@ const contactStyles = StyleSheet.create({
     height: '100%',
     display: 'flex',
     flexWrap: 'wrap',
+    justifyContent: 'flex-end'
   },
 
   inputName: {
@@ -380,6 +383,7 @@ const contactStyles = StyleSheet.create({
   },
 
   button: {
+
     borderRadius: '5px',
     boxShadow: '5px 5px 9px #997a20',
     backgroundColor: '#222A2E',
@@ -403,6 +407,7 @@ const contactStyles = StyleSheet.create({
   },
 
   monkey: {
+    userSelect: 'none',
     alignSelf : 'end',
     justifySelf: 'center',
     marginBottom: '0'

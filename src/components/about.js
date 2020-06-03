@@ -45,30 +45,36 @@ export default () => {
       alignItems: 'center',
       justifyContent: 'center',
       width: '100%',
-      height: '38vh',
+      height: '22vw',
       overflow: 'hidden',
       minHeight: '280px',
       paddingBottom: '5vw',
       [screenSize.tablet]: {
-        height: '40vh'
+        height: '40vh',
+        flexDirection: 'column',
+        minHeight: '320px',
       },
       [screenSize.smartphoneLandscape]: {
-        height: '45vh'
+        height: '45vh',
+        flexDirection: 'column',
+        minHeight: '340px',
       },
       [screenSize.smartphone]: {
-        height: '40vh'
+        height: '40vh',
+        flexDirection: 'column',
+        minHeight: '400px',
       }
     },
 
     title: {
       [screenSize.tablet]: {
-        display: 'none'
+        marginTop: '5%'
       },
       [screenSize.smartphoneLandscape]: {
-        display: 'none'
+        marginTop: '6vw'
       },
       [screenSize.smartphone]: {
-        display: 'none'
+        marginTop: '10vw'
       }
     },
 

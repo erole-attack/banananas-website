@@ -66,21 +66,18 @@ const kmoStyles = StyleSheet.create({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    width: '100vw',
+    width: '100%',
     height: '15vw',
     overflow: 'hidden',
     minHeight: '180px',
     [screenSize.tablet]: {
-      height: '40vh'
+      height: '25vw'
     },
     [screenSize.smartphoneLandscape]: {
-      height: '45vh'
+      height: '35vw'
     },
     [screenSize.smartphone]: {
-      backgroundColor: '#101213',
-      color: 'white',
-      height: '35vh',
-      minHeight: '200px'
+      height: '35vw'
     }
   },
 
@@ -89,11 +86,19 @@ const kmoStyles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#f2f6f7',
     margin: '0',
-    padding: '3vw'
+    padding: '3vw',
+    [screenSize.tablet]: {
+      paddingTop: '5vw'
+    },
+    [screenSize.smartphoneLandscape]: {
+      paddingTop: '5vw'
+    },
+    [screenSize.smartphone]: {
+      paddingTop: '10vw'
+    }
   },
 
   grid: {
-    marginLeft: '2vw',
     display: 'flex',
     width: '75%',
     height: '100%',
@@ -125,9 +130,8 @@ const kmoStyles = StyleSheet.create({
       lineHeight: '3vw'
     },
     [screenSize.smartphone]: {
-      fontSize: '2.2vw',
-      lineHeight: '3.8vw',
-      color: '#E1E1E1',
+      fontSize: '2.8vw',
+      lineHeight: '4.2vw',
     }
   }
 
