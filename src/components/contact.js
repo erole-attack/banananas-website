@@ -67,7 +67,7 @@ export default () => {
               data-netlify="true"
               netlify-honeypot="bot-field"
             >
-              <input type="hidden" name="form-name" value="emailcontact" />
+              <input type="hidden" name="form-name" value="contact" />
               <input type="hidden" name="bot-field" />
               <input
                 className={css(contactStyles.inputName)}
