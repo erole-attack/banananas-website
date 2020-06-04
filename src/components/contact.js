@@ -74,6 +74,7 @@ export default () => {
                 name="name"
                 type='text'
                 placeholder="Naam"
+                required
                 ref={register({
                   validate: value => value !== "admin" || "Nice try!"
                 })}
@@ -85,6 +86,7 @@ export default () => {
                 name="email"
                 type='email'
                 placeholder="E-mail"
+                required
                 ref={register({
                   required: "Required",
                   pattern: {
@@ -102,6 +104,7 @@ export default () => {
                 placeholder="Telefoonnummer"
                 value={value}
                 onChange={setValue}
+                required
               />
               {errors.phone && errors.phone.message}
 
@@ -110,6 +113,7 @@ export default () => {
                 name="message"
                 type='text'
                 placeholder="Bericht"
+                required
                 ref={register({
                   required: "Required",
                 })}
